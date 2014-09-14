@@ -1,0 +1,32 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+.bibliorefs li {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.bibliorefs ul {
+	padding: 0;
+	margin: 0;	
+}
+
+.biblioid {
+	font-weight: bold;	
+}
+
+.footer {
+	text-align: center;
+	font-size: 65%;	
+}
+
+.biblioentry td {
+	vertical-align: top;
+	padding: .2em;
+}
+
+.articleMetadata .title {
+	font-style: italic;
+	font-size: 180%;
+}
