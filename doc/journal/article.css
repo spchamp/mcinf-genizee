@@ -1,6 +1,57 @@
 ﻿@charset "utf-8";
 /* CSS Document */
 
+.article {
+	
+}
+
+.article > .metadata > .title {
+	font-style: italic;
+	font-size: 180%;
+}
+
+.article > .metadata > .author {
+	
+}
+
+.article > .metadata > .pubdate {
+	
+}
+
+
+.article > .content {
+	
+}
+
+.citation {
+	
+}
+
+.article #bibliography {
+	
+}
+
+.biblioentry {
+	
+}
+
+.biblioentry td {
+	vertical-align: top;
+	padding: .2em;
+}
+
+.biblioid {
+	font-weight: bold;	
+}
+
+.biblioinfo {
+	
+}
+
+.bibliorefs {
+	
+}
+
 .bibliorefs li {
 	list-style-type: none;
 	padding: 0;
@@ -12,21 +63,7 @@
 	margin: 0;	
 }
 
-.biblioid {
-	font-weight: bold;	
-}
-
 .footer {
 	text-align: center;
 	font-size: 65%;	
-}
-
-.biblioentry td {
-	vertical-align: top;
-	padding: .2em;
-}
-
-.articleMetadata .title {
-	font-style: italic;
-	font-size: 180%;
 }
