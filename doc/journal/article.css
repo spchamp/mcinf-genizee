@@ -23,6 +23,10 @@
 	
 }
 
+.content > h2, #bibliography > h2 {
+	text-decoration: underline;	
+}
+
 .citation {
 	
 }
