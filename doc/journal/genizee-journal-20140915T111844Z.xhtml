@@ -12,7 +12,7 @@
     <h1 class="title">A Set of Initial Usage Examples for Granite's KR</h1>
     <div class="author">Sean Champ</div>
     <div class="pubdate">15 September, 2014</div>
-    <div class="revision">Revision 1.0</div>
+    <div class="revision">Revision 1.1</div>
   </div><!-- .metadata -->
 
   <div class="content">
@@ -30,15 +30,17 @@
     <li>KR's Prototype-Instance Model</li>
     </ul>
 
+	<ul>
+    <li>KR is a Component of the Garnet toolkit, and may be used as a stand-alone object system</li>
+    </ul>
 
-    <h2>Usage Examples</h2>
+<h2>Usage Examples</h2>
     <h3>Applications in Geometry</h3>
     <ul>
       <li>Pythagorean Theorem (classic example)</li>
       <li>Relations among Trigonometric Functions</li>
       <li>Logarithmic Function as Inverse of Exponential Function</li>
     </ul>
-
     <h3>Applications in Electrical Science</h3>
     <ul>
     <li>Ohm's Law</li>
@@ -150,19 +152,31 @@
    	    </ul>
    	  </li>
     </ul>
-    <h2>Procedure in Numbered Steps</h2>
+    <h2>A &quot;Test Session&quot; Procedure, in Numbered Steps</h2>
+ 	<p>The goal of this test session shall be to ensure that the the items of "Stuff", as denoted in the previous, are succesffully installed and configured.</p>
+
+
+ <blockquote class="sidebar ednote">
+
+<p><em>Ed. Note:</em> The reader might observe that this test utilizes XMing and CLX, exclusively for the purpose of running Garnet, in this single "Test Session". The author does not wish to discourage development with Garnet, though this article shall forcus on KR. </p>
+<p>The configuration developed in this article may be of use, more broadly, in developing with CLX.</p>
+ </blockquote>
+    
     <ol>
     	<li>"Install stuff" (Host OS and Guest OS)</li>
         <li>"Configure stuff" (Host OS and Guest OS)</li>
         <li>Download Garnet (Guest OS)</li>
-        <li>Using Xming, launch a terminal emulator (client on Guest OS) and in that terminal emulator, run SBCL</li>
+        <li>After same &quot;Stuff&quot; items have been successfully installed and configured, then using Xming (host OS), launch a terminal emulator (client on Guest OS) and in that terminal emulator, run SBCL</li>
         <li>In that SBCL session, load Garnet</li>
         <li>In that SBCL session, then run a Garnet demo</li>
         <li>Garnet demo should display succesfully on Host OS, via XMing as the X Window Server</li>
         <li>That would complete the &quot;Test session&quot;</li>
-        <li>Subsequent tasks would include: To extend KR for any one or more of the usage examples denoted in the previous</li>
+        <li>Subsequent tasks would include: <ul>
+        <li>To extend KR for any one or more of the usage examples denoted in the previous  </li>
+        <li>Optionally, to develop a CLOS-based implementation of the formual object/constaint propogation model developed originally in KR</li>
+        <li><em>Building cloud castles in the sand garden, for devorative purpose</em></li>
+        </ul></li>
     </ol>
-    <p>&nbsp;</p>
   </div><!-- .content -->
 
   <div id="bibliography">
