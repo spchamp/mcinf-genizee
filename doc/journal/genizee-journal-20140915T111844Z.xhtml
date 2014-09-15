@@ -1,15 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{TITLE} // Genizee Project Journal</title>
+<title>Towards A Set of Usage Examples for Garnet KR // Genizee Project Journal</title>
 <link href="article.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div class="article">
 
   <div class="metadata">
-    <h1 class="title">A Set of Initial Usage Examples for Granite's KR</h1>
+    <h1 class="title">Towards A Set of Usage Examples for Garnet KR</h1>
     <div class="author">Sean Champ</div>
     <div class="pubdate">15 September, 2014</div>
     <div class="revision">Revision 1.2</div>
@@ -22,11 +21,11 @@
     
     <ul>
     <li>KR Formulas</li>
-    <li>Symbol-value propogation</li>
+    <li>Symbol-value propagation</li>
     </ul>
 
     <ul>
-    <li>An object systems in CLtL2, alternate to CLOS</li>
+    <li>An object system in CLtL2, alternate to CLOS</li>
     <li>KR's Prototype-Instance Model</li>
     </ul>
 
@@ -44,7 +43,7 @@
     <h3>Applications in Electrical Science</h3>
     <ul>
     <li>Ohm's Law</li>
-    <li>Calculation of Equivalent Reistance, Capacitance, or Inductance, in series and parallel circuits (six individual formulae, simple <em>sum</em> or <em>inverse of sum of inverses</em>)</li>
+    <li>Calculation of Equivalent Resistance, Capacitance, or Inductance, in series and parallel circuits (six individual formulae, simple <em>sum</em> or <em>inverse of sum of inverses</em>)</li>
     </ul>
     
     <h2>Outline of a Desktop Development Environment</h2>
@@ -54,7 +53,7 @@
        	<ul>
            	  <li>Virtual Appliance Guest OS: Kubuntu (Ubuntu 14.04)
            	    <ul>
-           	      <li>Virtualbox Guest Additions are installed on Guest OS</li>
+           	      <li>VirtualBox Guest Additions are installed on Guest OS</li>
            	      <li>OpenSSH server is installed on guest OS</li>
                   <li>SBCL is installed on guest OS</li>
                   <li>Orthogonal to this configuration: X.org is installed on guest OS</li>
@@ -62,12 +61,12 @@
            	  </li>
             	<li>Virtual Appliance Host OS: Microsoft Windows 8.1
             	  <ul>
-            	    <li>Virtualbox network adapter type, installed in host OS for accessing Guest via network: <em>NAT</em></li>
+            	    <li>VirtualBox network adapter type, installed in host OS for accessing Guest via network: <em>NAT</em></li>
             	    <li>Port forwarding configured on Host OS
             	      <ul>
             	        <li>Host OS IP address observed for NAT adapter: 192.168.50.1
             	          <ul>
-            	            <li>Using this IP adress as the &quot;Host IP&quot; address for the port forwarding configuration</li>
+            	            <li>Using this IP address as the &quot;Host IP&quot; address for the port forwarding configuration</li>
             	            <li>IP address was determined via Microsoft Windows &quot;Network and Sharing Center&quot;</li>
           	              </ul>
             	        </li>
@@ -87,7 +86,7 @@
    	  <li>Xming
    	    <ul>
    	      <li>X Server for Windows</li>
-   	      <li>Embeded support for SSH port forwarding, integrating with Putty or Xming's own Portable Putty</li>
+   	      <li>Embedded support for SSH port forwarding, integrating with Putty or Xming's own Portable Putty</li>
    	      <li>Utility item: XLaunch file for launching Dolphin
    	        <ul>
    	          <li>XLaunch file created with &quot;-P 2222&quot; as additional args to PuTTY</li>
@@ -112,12 +111,12 @@
    	  </li>
     </ul>
     <h2>A &quot;Test Session&quot; Procedure, in Numbered Steps</h2>
- 	<p>The goal of this test session shall be to ensure that the the items of "Stuff", as denoted in the previous, are succesffully installed and configured.</p>
+ 	<p>The goal of this test session shall be to ensure that the the items of "Stuff", as denoted in the previous, are successfully installed and configured.</p>
 
 
  <blockquote class="sidebar ednote">
 
-<p><em>Ed. Note:</em> The reader might observe that this test utilizes XMing and CLX, exclusively for the purpose of running Garnet, in this single "Test Session". The author does not wish to discourage development with Garnet, though this article shall forcus on KR. </p>
+<p><em>Ed. Note:</em> The reader might observe that this test utilizes Xming and CLX, exclusively for the purpose of running Garnet, in this single "Test Session". The author does not wish to discourage development with Garnet, though this article shall focus on KR. </p>
 <p>The configuration developed in this article may be of use, more broadly, in developing with CLX.</p>
  </blockquote>
     
@@ -128,19 +127,19 @@
         <li>After same &quot;Stuff&quot; items have been successfully installed and configured, then using Xming (host OS), launch a terminal emulator (client on Guest OS) and in that terminal emulator, run SBCL</li>
         <li>In that SBCL session, load Garnet</li>
         <li>In that SBCL session, then run a Garnet demo</li>
-        <li>Garnet demo should display succesfully on Host OS, via XMing as the X Window Server</li>
+        <li>Garnet demo should display successfully on Host OS, via Xming as the X Window Server</li>
         <li>That would complete the &quot;Test session&quot;</li>
         <li>Subsequent tasks would include: <ul>
         <li>To extend KR for any one or more of the usage examples denoted in the previous  </li>
-        <li>Optionally, to develop a CLOS-based implementation of the formual object/constaint propogation model developed originally in KR</li>
-        <li><em>Building cloud castles in the sand garden, for devorative purpose</em></li>
+        <li>To develop an implementation of such a formual object/constaint propogation model as is implemented in KR, but extending on CLOS' class/instance model &mdash; contrasted to the prototype/instance model developed in KR</li>
+        <li><em>Building cloud castles in the sand garden, for decorative purpose</em></li>
         </ul></li>
     </ol>
 
 
 <blockquote class="endnote">
  <h2>Sidebar: NoMachine</h2>
-      <p>During the development of this study, the <a href="http://www.nomachine.com/">NoMachine</a> remote desktop framework was studied for purppose of determining &mdash; albeit, in some regards, abritrarily &mdash; whether NoMachine may be a useful element for the development environment denoted in the previous. It was hoped that NoMachine might provide -- via the NX protoocl -- perhaps a more optimized alternative to the traditional X Window System protocols and client/server application as supported with XMing.</p>
+      <p>During the development of this study, the <a href="http://www.nomachine.com/">NoMachine</a> remote desktop framework was studied for purpose of determining &mdash; albeit, in some regards, arbitrarily &mdash; whether NoMachine may be a useful element for the development environment denoted in the previous. It was hoped that NoMachine might provide -- via the NX protocol -- perhaps a more optimized alternative to the traditional X Window System protocols and client/server application as supported with Xming.</p>
    	    <ul>
    	      <li>See also: <a href="http://en.wikipedia.org.advanc.io/wiki/NX_technology">NX protocol</a>, as derived from <a href="http://www.vigor.nu/dxpc/">DXCP</a></li>
    	      <li><em>Desktop remoting</em> protocols supported in NoMachine
@@ -152,19 +151,19 @@
    	        <ul>
    	          <li>Desktop GUI performance?</li>
    	          <li>Does NoMachine on Microsoft Windows <em>technically</em> provide an X Server on Microsoft Windows?</li>
-   	          <li>Would  NoMachine/NX be used by X clients started within a terminal connected initially via NoMachine/NX? Or would those clients rever to the default X protocol
+   	          <li>Would  NoMachine/NX be used by X clients started within a terminal connected initially via NoMachine/NX? Or would those clients revert to the default X protocol
    	            <ul>
    	              <li>&quot;Likely Answer:&quot; NO (?)</li>
    	              <li>&quot;Extensional answer&quot;: Certainly, support for NX must be provided by the client application itself??</li>
    	              <li>If the client application, itself, implements NX, then certainly the client application might use NX as an alternative to the baseline X11 protocol(s)</li>
-   	              <li>Therefore, if CLX doesn't implement NX at this time, then X Window System clients using CLX would not be able ot use NX, at this itme.</li>
+   	              <li>Therefore, if CLX doesn't implement NX at this time, then X Window System clients using CLX would not be able to use NX, at this time.</li>
                 </ul>
    	          </li>
             </ul>
           </li>
    	      <li>NoMachine installed on guest OS
    	        <ul>
-   	          <li>The NX service binds, by defualt, to TCP port 4000</li>
+   	          <li>The NX service binds, by default, to TCP port 4000</li>
    	          <li>NoMachine installation would have created a configuration for integrating with CUPS printer sharing, if CUPS was installed on the guest OS when NoMachine was installed on the guest OS</li>
    	          <li>Installed shell commands include:
    	            <ul>
@@ -192,11 +191,11 @@
    	        <ul>
    	          <li><a href="https://www.nomachine.com/getting-started-with-nomachine"><em>Getting Started with NoMachine</em></a></li>
    	          <li><em><a href="./https://www.nomachine.com/documents?keys=&amp;type%5Bdocuments_type%5D=documents_type&amp;articleName=&amp;form_build_id=form-fd809ad405b331a58e981b86587a1afe&amp;field_appliesto_value_many_to_one=All&amp;custom_filter=any&amp;documentName=">Documentation</a></em><a href="./https://www.nomachine.com/documents?keys=&amp;type%5Bdocuments_type%5D=documents_type&amp;articleName=&amp;form_build_id=form-fd809ad405b331a58e981b86587a1afe&amp;field_appliesto_value_many_to_one=All&amp;custom_filter=any&amp;documentName="> in the NoMachine <em>Knowledge Base</em></a></li>
-   	          <li><em><a href="https://www.nomachine.com/version-3">Legacy NoMacine Version 3 Software</a></em></li>
+   	          <li><em><a href="https://www.nomachine.com/version-3">Legacy NoMachine Version 3 Software</a></em></li>
    	          <li><em><a href="https://www.nomachine.com/AR01C00142">How can I Get Involved in NX Development</a>?</em></li>
    	          <li><a href="https://www.nomachine.com/opensource">NoMachine Open Source Software</a> components
 <ul>
-   	              <li>...focusing primiarly on <em>nxcodec</em>
+   	              <li>...focusing primarily on <em>nxcodec</em>
    	                <ul>
    	                  <li>towards FFI + CCL ETC</li>
    	                  <li><em>with or without documentation</em></li>
