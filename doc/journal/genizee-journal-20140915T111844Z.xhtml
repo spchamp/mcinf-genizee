@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{TITLE} // Genizee Project Journal</title>
+<link href="article.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="article">
+
+  <div class="metadata">
+    <h1 class="title">A Set of Initial Usage Examples for Granite's KR</h1>
+    <div class="author">Sean Champ</div>
+    <div class="pubdate">15 September, 2014</div>
+    <div class="revision">Revision 1.0</div>
+  </div><!-- .metadata -->
+
+  <div class="content">
+    <p></p>
+    
+    <h2>A Brief Overview of KR</h2>
+    
+    <ul>
+    <li>KR Formulas</li>
+    <li>Symbol-value propogation</li>
+    </ul>
+
+    <ul>
+    <li>An object systems in CLtL2, alternate to CLOS</li>
+    <li>KR's Prototype-Instance Model</li>
+    </ul>
+
+
+    <h2>Usage Examples</h2>
+    <h3>Applications in Geometry</h3>
+    <ul>
+      <li>Pythagorean Theorem (classic example)</li>
+      <li>Relations among Trigonometric Functions</li>
+      <li>Logarithmic Function as Inverse of Exponential Function</li>
+    </ul>
+
+    <h3>Applications in Electrical Science</h3>
+    <ul>
+    <li>Ohm's Law</li>
+    <li>Calculation of Equivalent Reistance, Capacitance, or Inductance, in series and parallel circuits (six individual formulae, simple <em>sum</em> or <em>inverse of sum of inverses</em>)</li>
+    </ul>
+    
+    <h2>Outline of a Desktop Development Environment</h2>
+    
+    <ul>
+   	  <li>VirtualBox
+       	<ul>
+           	  <li>Virtual Appliance Guest OS: Kubuntu (Ubuntu 14.04)
+           	    <ul>
+           	      <li>Virtualbox Guest Additions are installed on Guest OS</li>
+           	      <li>OpenSSH server is installed on guest OS</li>
+                  <li>SBCL is installed on guest OS</li>
+                  <li>Orthogonal to this configuration: X.org is installed on guest OS</li>
+           	    </ul>
+           	  </li>
+            	<li>Virtual Appliance Host OS: Microsoft Windows 8.1
+            	  <ul>
+            	    <li>Virtualbox network adapter type, installed in host OS for accessing Guest via network: <em>NAT</em></li>
+            	    <li>Port forwarding configured on Host OS
+            	      <ul>
+            	        <li>Host OS IP address observed for NAT adapter: 192.168.50.1
+            	          <ul>
+            	            <li>Using this IP adress as the &quot;Host IP&quot; address for the port forwarding configuration</li>
+            	            <li>IP address was determined via Microsoft Windows &quot;Network and Sharing Center&quot;</li>
+          	              </ul>
+            	        </li>
+            	        <li>Port forwarding &quot;Host port' 2222</li>
+            	        <li>Port forwarding &quot;Guest port&quot; 22 
+            	          <ul>
+            	            <li>SSH</li>
+            	            <li>&quot;Guest IP&quot; address is not required in this configuration</li>
+          	              </ul>
+            	        </li>
+           	          </ul>
+            	    </li>
+           	      </ul>
+            	</li>
+        </ul>
+   	  </li>
+   	  <li>Xming
+   	    <ul>
+   	      <li>X Server for Windows</li>
+   	      <li>Embeded support for SSH port forwarding, integrating with Putty or Xming's own Portable Putty</li>
+   	      <li>Utility item: XLaunch file for launching Dolphin
+   	        <ul>
+   	          <li>XLaunch file created with &quot;-P 2222&quot; as additional args to PuTTY</li>
+   	          <li> launches Dolphin client on remote, with display on local Xming server</li>
+   	          <li> Dolphin can be used to launch terminal</li>
+            </ul>
+   	      </li>
+        </ul>
+   	  </li>
+   	  <li>NoMachine
+   	    
+   	    <ul>
+   	      <li>See also: <a href="http://en.wikipedia.org.advanc.io/wiki/NX_technology">NX protocol</a>, as derived from <a href="http://www.vigor.nu/dxpc/">DXCP</a></li>
+   	      <li><em>Desktop remoting</em> protocols supported in NoMachine
+   	        <ul>
+   	          <li>???</li>
+            </ul>
+   	      </li>
+   	      <li>Alternative to Xming ???
+   	        <ul>
+   	          <li>Desktop GUI performance?</li>
+   	          <li>Does NoMachine on Microsoft Windows <em>technically</em> provide an X Server on Microsoft Windows?</li>
+   	          <li>Would  NoMachine/NX be used by X clients started within a terminal connected initially via NoMachine/NX? Or would those clients rever to the default X protocol
+   	            <ul>
+   	              <li>&quot;Likely Answer:&quot; NO (?)</li>
+   	              <li>&quot;Extensional answer&quot;: Certainly, support for NX must be provided by the client application itself??</li>
+   	              <li>If the client application, itself, implements NX, then certainly the client application might use NX as an alternative to the baseline X11 protocol(s)</li>
+   	              <li>Therefore, if CLX doesn't implement NX at this time, then X Window System clients using CLX would not be able ot use NX, at this itme.</li>
+                </ul>
+   	          </li>
+            </ul>
+          </li>
+   	      <li>NoMachine installed on guest OS
+   	        <ul>
+   	          <li>TCP port 4000</li>
+   	          <li>NoMachine installation would have created a configuration for integrating with CUPS printer sharing, if CUPS was installed on the guest OS when NoMachine was installed on the guest OS</li>
+   	          <li>Installed shell commands include:
+   	            <ul>
+                  <li><code class="command">nxnode (4.2.27)</code></li>
+   	              <li><code class="command">nxplayer (4.2.27)</code></li>
+   	              <li><code class="command">nxexec</code></li>
+   	              <li><code class="command">nxprint</code></li>
+   	              <li><code class="command">nxfsm</code></li>
+              </ul></li>
+   	          <li>See also: <code class="filename">/usr/NX/etc/node.cfg</code></li>
+            </ul></li>
+   	      <li>NoMachine is installed on host OS</li>
+   	      <li> NoMachine is also available for the Android and  iOS tablet platforms</li>
+   	      <li>See also: <a href="https://www.nomachine.com/getting-started-with-nomachine"><em>Getting Started with NoMachine</em></a></li>
+   	    </ul></li>
+   	  <li>Common Lisp Environment
+       	  <ul>
+           	  <li>SBCL on guest OS
+           	    <ul>
+           	      <li>CLX/Portable CLX</li>
+           	      <li>Garnet</li>
+       	        </ul>
+           	  </li>
+           	  <li>Utility item: SBCL on host OS</li>
+           	  <li>A rationale in selecting SBCL, in short summary: &quot;Because debugger, and also CTypes and VOPs&quot;</li>
+           	  <li>Possible concerns with regards to interrupts model?</li>
+   	    </ul>
+   	  </li>
+    </ul>
+    <h2>Procedure in Numbered Steps</h2>
+    <ol>
+    	<li>"Install stuff" (Host OS and Guest OS)</li>
+        <li>"Configure stuff" (Host OS and Guest OS)</li>
+        <li>Download Garnet (Guest OS)</li>
+        <li>Using Xming, launch a terminal emulator (client on Guest OS) and in that terminal emulator, run SBCL</li>
+        <li>In that SBCL session, load Garnet</li>
+        <li>In that SBCL session, then run a Garnet demo</li>
+        <li>Garnet demo should display succesfully on Host OS, via XMing as the X Window Server</li>
+        <li>That would complete the &quot;Test session&quot;</li>
+        <li>Subsequent tasks would include: To extend KR for any one or more of the usage examples denoted in the previous</li>
+    </ol>
+    <p>&nbsp;</p>
+  </div><!-- .content -->
+
+  <div id="bibliography">
+    <h2>Additional Bibliography</h2>
+    <table>
+
+      <tr class="biblioentry">
+        <td class="biblioid"><a name="bib.Nahvi2014" id="bib.Nahvi2014">Nahvi2014</a></td>
+        <td class="biblioinfo">Nahvi, Mahmood and Joseph A. Edminister. <em>Schaum's Outline of Electric Circuits</em>. 6th edition. McGraw-Hill (New York). 2014
+        </td>
+        <td class="bibliorefs">
+          <div><strong>References</strong></div>
+          <ul>
+            <li><a href="#bibfef.Nahvi2014.1">1</a></li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr class="biblioentry">
+        <td class="biblioid"><a name="bib.Spiegel1971">Spiegel 1971</a></td>
+        <td class="biblioinfo">Spiegel, Murray R..<em>Schaum's Outline of Advanced Mathematics for Engineers and Scientists</em>. McGraw-Hill (New York). 1972</td>
+        <td class="bibliorefs"><strong>References</strong>
+          <ul>
+            <li><a href="#bibfef.{BIBID}.1">1</a></li>
+          </ul></td>
+      </tr>
+<!-- also Schaum's outlines of:
+1. Vector mathematics
+2. Calculus (differential calculus and integral calculus)
+-->
+
+    </table>
+  </div><!-- .bibliography -->
+</div><!-- .article -->
+
+<div class="footer">
+  <p>(C) 2014. {RIGHS_HOLDER}</p>
+</div><!-- .footer -->
+
+<body>
+</body>
+</html>
