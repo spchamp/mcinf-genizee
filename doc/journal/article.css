@@ -39,6 +39,36 @@
 	
 }
 
+.content > .p {
+	margin: 0.2em; 0.1em 0.1em 0.1em;	
+}
+
+
+.ednote {
+	border-color: #933 !important;
+	border-width: 3pt !important;
+}
+
+blockquote.sidebar, blockquote.endnote {
+	margin: 0.2em 1.3em 0.4em 1.8em;
+	padding: 0.3em 0.9em 0.4em 0.8em; 
+	border-style: solid;
+
+}
+
+blockquote.sidebar {
+	float: right;
+	width: 40%;
+	border-width: 1pt;
+}
+
+
+blockquote.sidebar p:first-child, blockquote.endnote p:first-child {
+	margin: 0;em 0.1em 0.1em 0.1em;
+}
+
+
+
 .article #bibliography {
 	
 }
