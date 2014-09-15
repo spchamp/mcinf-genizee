@@ -35,6 +35,18 @@
 	font-style: oblique;	
 }
 
+.command, .filename {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.command {
+	font-weight: bold;	
+}
+
+.filename {;
+	font-style: oblique;		
+}
+
 .citation {
 	
 }
