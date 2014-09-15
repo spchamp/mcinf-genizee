@@ -12,7 +12,7 @@
     <h1 class="title">A Set of Initial Usage Examples for Granite's KR</h1>
     <div class="author">Sean Champ</div>
     <div class="pubdate">15 September, 2014</div>
-    <div class="revision">Revision 1.1</div>
+    <div class="revision">Revision 1.2</div>
   </div><!-- .metadata -->
 
   <div class="content">
@@ -71,7 +71,7 @@
             	            <li>IP address was determined via Microsoft Windows &quot;Network and Sharing Center&quot;</li>
           	              </ul>
             	        </li>
-            	        <li>Port forwarding &quot;Host port' 2222</li>
+            	        <li>Port forwarding &quot;Host port&quot; (arbitrary) 2222</li>
             	        <li>Port forwarding &quot;Guest port&quot; 22 
             	          <ul>
             	            <li>SSH</li>
@@ -93,53 +93,6 @@
    	          <li>XLaunch file created with &quot;-P 2222&quot; as additional args to PuTTY</li>
    	          <li> launches Dolphin client on remote, with display on local Xming server</li>
    	          <li> Dolphin can be used to launch terminal</li>
-            </ul>
-   	      </li>
-        </ul>
-   	  </li>
-   	  <li>NoMachine
-   	    
-   	    <ul>
-   	      <li>See also: <a href="http://en.wikipedia.org.advanc.io/wiki/NX_technology">NX protocol</a>, as derived from <a href="http://www.vigor.nu/dxpc/">DXCP</a></li>
-   	      <li><em>Desktop remoting</em> protocols supported in NoMachine
-   	        <ul>
-   	          <li>???</li>
-            </ul>
-   	      </li>
-   	      <li>Alternative to Xming ???
-   	        <ul>
-   	          <li>Desktop GUI performance?</li>
-   	          <li>Does NoMachine on Microsoft Windows <em>technically</em> provide an X Server on Microsoft Windows?</li>
-   	          <li>Would  NoMachine/NX be used by X clients started within a terminal connected initially via NoMachine/NX? Or would those clients rever to the default X protocol
-   	            <ul>
-   	              <li>&quot;Likely Answer:&quot; NO (?)</li>
-   	              <li>&quot;Extensional answer&quot;: Certainly, support for NX must be provided by the client application itself??</li>
-   	              <li>If the client application, itself, implements NX, then certainly the client application might use NX as an alternative to the baseline X11 protocol(s)</li>
-   	              <li>Therefore, if CLX doesn't implement NX at this time, then X Window System clients using CLX would not be able ot use NX, at this itme.</li>
-                </ul>
-   	          </li>
-            </ul>
-          </li>
-   	      <li>NoMachine installed on guest OS
-   	        <ul>
-   	          <li>TCP port 4000</li>
-   	          <li>NoMachine installation would have created a configuration for integrating with CUPS printer sharing, if CUPS was installed on the guest OS when NoMachine was installed on the guest OS</li>
-   	          <li>Installed shell commands include:
-   	            <ul>
-                  <li><code class="command">nxnode (4.2.27)</code></li>
-   	              <li><code class="command">nxplayer (4.2.27)</code></li>
-   	              <li><code class="command">nxexec</code></li>
-   	              <li><code class="command">nxprint</code></li>
-   	              <li><code class="command">nxfsm</code></li>
-              </ul></li>
-   	          <li>See also: <code class="filename">/usr/NX/etc/node.cfg</code></li>
-            </ul></li>
-   	      <li>NoMachine is installed on host OS</li>
-   	      <li> NoMachine is also available for the Android and  iOS tablet platforms</li>
-   	      <li>See also: 
-   	        <ul>
-   	          <li><a href="https://www.nomachine.com/getting-started-with-nomachine"><em>Getting Started with NoMachine</em></a></li>
-   	          <li><em><a href="./https://www.nomachine.com/documents?keys=&amp;type%5Bdocuments_type%5D=documents_type&amp;articleName=&amp;form_build_id=form-fd809ad405b331a58e981b86587a1afe&amp;field_appliesto_value_many_to_one=All&amp;custom_filter=any&amp;documentName=">Documentation</a></em><a href="./https://www.nomachine.com/documents?keys=&amp;type%5Bdocuments_type%5D=documents_type&amp;articleName=&amp;form_build_id=form-fd809ad405b331a58e981b86587a1afe&amp;field_appliesto_value_many_to_one=All&amp;custom_filter=any&amp;documentName="> in the NoMachine <em>Knowledge Base</em></a></li>
             </ul>
    	      </li>
         </ul>
@@ -183,6 +136,84 @@
         <li><em>Building cloud castles in the sand garden, for devorative purpose</em></li>
         </ul></li>
     </ol>
+
+
+<blockquote class="endnote">
+ <h2>Sidebar: NoMachine</h2>
+      <p>During the development of this study, the <a href="http://www.nomachine.com/">NoMachine</a> remote desktop framework was studied for purppose of determining &mdash; albeit, in some regards, abritrarily &mdash; whether NoMachine may be a useful element for the development environment denoted in the previous. It was hoped that NoMachine might provide -- via the NX protoocl -- perhaps a more optimized alternative to the traditional X Window System protocols and client/server application as supported with XMing.</p>
+   	    <ul>
+   	      <li>See also: <a href="http://en.wikipedia.org.advanc.io/wiki/NX_technology">NX protocol</a>, as derived from <a href="http://www.vigor.nu/dxpc/">DXCP</a></li>
+   	      <li><em>Desktop remoting</em> protocols supported in NoMachine
+   	        <ul>
+   	          <li>???</li>
+            </ul>
+   	      </li>
+   	      <li>Alternative to Xming ???
+   	        <ul>
+   	          <li>Desktop GUI performance?</li>
+   	          <li>Does NoMachine on Microsoft Windows <em>technically</em> provide an X Server on Microsoft Windows?</li>
+   	          <li>Would  NoMachine/NX be used by X clients started within a terminal connected initially via NoMachine/NX? Or would those clients rever to the default X protocol
+   	            <ul>
+   	              <li>&quot;Likely Answer:&quot; NO (?)</li>
+   	              <li>&quot;Extensional answer&quot;: Certainly, support for NX must be provided by the client application itself??</li>
+   	              <li>If the client application, itself, implements NX, then certainly the client application might use NX as an alternative to the baseline X11 protocol(s)</li>
+   	              <li>Therefore, if CLX doesn't implement NX at this time, then X Window System clients using CLX would not be able ot use NX, at this itme.</li>
+                </ul>
+   	          </li>
+            </ul>
+          </li>
+   	      <li>NoMachine installed on guest OS
+   	        <ul>
+   	          <li>The NX service binds, by defualt, to TCP port 4000</li>
+   	          <li>NoMachine installation would have created a configuration for integrating with CUPS printer sharing, if CUPS was installed on the guest OS when NoMachine was installed on the guest OS</li>
+   	          <li>Installed shell commands include:
+   	            <ul>
+                  <li><code class="command">nxnode (4.2.27)</code></li>
+   	              <li><code class="command">nxplayer (4.2.27)</code></li>
+   	              <li><code class="command">nxexec</code></li>
+   	              <li><code class="command">nxprint</code></li>
+   	              <li><code class="command">nxfsm</code></li>
+              </ul></li>
+   	          <li>See also: <code class="filename">/usr/NX/etc/node.cfg</code></li>
+            </ul></li>
+   	      <li>NoMachine is installed on host OS
+   	        <ul>
+   	          <li>Installation requires reboot</li>
+   	          <li>Configuration with VirtualBox network, as denoted above, requires an additional port forwarding assignment, e.g using &quot;Guest port&quot; 4000, &quot;Host port&quot; (arbitrary) 4040, other parameters the same.
+</li>
+   	          <li>NoMachine on the Host OS, in a connection to the NX service on the Guest OS, display a full screen interface to the host OS, under the user of login on the host OS -- but even insofar as displaying the KDM login screen (RDP??)</li>
+   	          <li>Protocols not thoroughly documented</li>
+   	          <li>Possibly applicable in the development environment as an alternative to using RDP for login to the VirtualBox guest OS</li>
+   	          <li>NoMachine finds applications throughout enterprise networks</li>
+   	        </ul>
+   	      </li>
+   	      <li> NoMachine is also available for the Android and  iOS tablet platforms</li>
+   	      <li>See also: 
+   	        <ul>
+   	          <li><a href="https://www.nomachine.com/getting-started-with-nomachine"><em>Getting Started with NoMachine</em></a></li>
+   	          <li><em><a href="./https://www.nomachine.com/documents?keys=&amp;type%5Bdocuments_type%5D=documents_type&amp;articleName=&amp;form_build_id=form-fd809ad405b331a58e981b86587a1afe&amp;field_appliesto_value_many_to_one=All&amp;custom_filter=any&amp;documentName=">Documentation</a></em><a href="./https://www.nomachine.com/documents?keys=&amp;type%5Bdocuments_type%5D=documents_type&amp;articleName=&amp;form_build_id=form-fd809ad405b331a58e981b86587a1afe&amp;field_appliesto_value_many_to_one=All&amp;custom_filter=any&amp;documentName="> in the NoMachine <em>Knowledge Base</em></a></li>
+   	          <li><em><a href="https://www.nomachine.com/version-3">Legacy NoMacine Version 3 Software</a></em></li>
+   	          <li><em><a href="https://www.nomachine.com/AR01C00142">How can I Get Involved in NX Development</a>?</em></li>
+   	          <li><a href="https://www.nomachine.com/opensource">NoMachine Open Source Software</a> components
+<ul>
+   	              <li>...focusing primiarly on <em>nxcodec</em>
+   	                <ul>
+   	                  <li>towards FFI + CCL ETC</li>
+   	                  <li><em>with or without documentation</em></li>
+                    </ul>
+   	              </li>
+   	              <li>observe &quot;MinGW64-i686&quot; </li>
+   	              <li>direct download (not SCCM)</li>
+   	              <li>current NoMachine version is 4.2.27</li>
+                </ul>
+   	          </li>
+            </ul>
+   	      </li>
+      </ul>
+   	  
+   	 
+</blockquote>
+
   </div><!-- .content -->
 
   <div id="bibliography">
