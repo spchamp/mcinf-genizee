@@ -16,9 +16,9 @@
 
   <div class="content">
     <p></p>
-    
+
     <h2>A Brief Overview of KR</h2>
-    
+
     <ul>
     <li>KR Formulas</li>
     <li>Symbol-value propagation</li>
@@ -29,7 +29,7 @@
     <li>KR's Prototype-Instance Model</li>
     </ul>
 
-	<ul>
+        <ul>
     <li>KR is a Component of the Garnet toolkit, and may be used as a stand-alone object system</li>
     </ul>
 
@@ -45,78 +45,78 @@
     <li>Ohm's Law</li>
     <li>Calculation of Equivalent Resistance, Capacitance, or Inductance, in series and parallel circuits (six individual formulae, simple <em>sum</em> or <em>inverse of sum of inverses</em>)</li>
     </ul>
-    
+
     <h2>Outline of a Desktop Development Environment</h2>
-    
-	<p>This outline proposes a model for <span class="productname">CLX</span> development on a <span class="productname">Microsoft Windows</span> platform. In the model described herein, <span class="productname">VirtualBox</span> is applied in developing a <em class="glossterm">virtualized</em> <span class="productname">Linux</span> operating system within a <span class="productname">VirtualBox</span> <em class="glossterm">Virtual Appliance</em>. That <em>Virtual Appliance</em> may be accessed directly via <span class="productname">VirtualBox</span>' desktop integration, or alternately, via an <span class="productname">SSH</span> tunnel over a <span class="productname">VirtualBox</span> networking interface. </p>
-	<p>Using <span class="productname">SSH</span> tunneling, with the <span class="productname">Xming</span> <em class="glossterm">server</em> installed on a <span class="productname">Microsoft Windows</span> desktop &mdash; that, serving as the <span class="glossterm">host <abbr>OS</abbr></span> to the <span class="glossterm">virtual appliance</span>  &mdash; then any <span class="productname">X Window System</span> <span class="glossterm">client</span> applications installed on the <span class="glossterm">guest OS</span> may be accessed &mdash; as though <em>remotely</em> &mdash; via the <span class="productname">X Window System</span> <span class="glossterm">client-server protocols</span>, from within the <span class="productname">X Window System</span> <em class="glossterm">server</em>, on the <span class="glossterm">host <abbr>OS</abbr></span>. </p>
-	<p>Furthermore, with a configuration such as denoted herein, the <span class="productname">Linux</span> <span class="glossterm">guest OS</span> may be configured so as to <em>boot</em> to a <em>runlevel</em>, such that an <span class="productname">X Window System</span> <span class="glossterm">display manager</span> would not be initialized during the system boot process &mdash; therefore, not expending machine resources on a service unused, in such a configuration. Whether with or without an <span class="productname">X Window System</span> <span class="glossterm">display manager</span>, however, this configuration would allow for remote <span class="productname">X Window System</span> access via<span class="productname"> SSH. </span>Using <span class="productname">SSH</span> tunneling, this configuration would allow for runnning any <span class="productname">X Window System</span> <span class="glossterm">client processes</span> on the <span class="glossterm">guest OS</span>, from whithin the <span class="productname">X Window System</span> <span class="glossterm">server</span> on the <span class="glossterm">host <abbr>OS</abbr></span> to the <span class="glossterm">virtual appliance</span>. The <span class="glossterm">guest OS, </span> in this configuration, would be available via a a <span class="productname">VirtualBox</span> networking interface.</p>
-   
-   
+
+        <p>This outline proposes a model for <span class="productname">CLX</span> development on a <span class="productname">Microsoft Windows</span> platform. In the model described herein, <span class="productname">VirtualBox</span> is applied in developing a <em class="glossterm">virtualized</em> <span class="productname">Linux</span> operating system within a <span class="productname">VirtualBox</span> <em class="glossterm">Virtual Appliance</em>. That <em>Virtual Appliance</em> may be accessed directly via <span class="productname">VirtualBox</span>' desktop integration, or alternately, via an <span class="productname">SSH</span> tunnel over a <span class="productname">VirtualBox</span> networking interface. </p>
+        <p>Using <span class="productname">SSH</span> tunneling, with the <span class="productname">Xming</span> <em class="glossterm">server</em> installed on a <span class="productname">Microsoft Windows</span> desktop &mdash; that, serving as the <span class="glossterm">host <abbr>OS</abbr></span> to the <span class="glossterm">virtual appliance</span>  &mdash; then any <span class="productname">X Window System</span> <span class="glossterm">client</span> applications installed on the <span class="glossterm">guest OS</span> may be accessed &mdash; as though <em>remotely</em> &mdash; via the <span class="productname">X Window System</span> <span class="glossterm">client-server protocols</span>, from within the <span class="productname">X Window System</span> <em class="glossterm">server</em>, on the <span class="glossterm">host <abbr>OS</abbr></span>. </p>
+        <p>Furthermore, with a configuration such as denoted herein, the <span class="productname">Linux</span> <span class="glossterm">guest OS</span> may be configured so as to <em>boot</em> to a <em>runlevel</em>, such that an <span class="productname">X Window System</span> <span class="glossterm">display manager</span> would not be initialized during the system boot process &mdash; therefore, not expending machine resources on a service unused, in such a configuration. Whether with or without an <span class="productname">X Window System</span> <span class="glossterm">display manager</span>, however, this configuration would allow for remote <span class="productname">X Window System</span> access via<span class="productname"> SSH. </span>Using <span class="productname">SSH</span> tunneling, this configuration would allow for runnning any <span class="productname">X Window System</span> <span class="glossterm">client processes</span> on the <span class="glossterm">guest OS</span>, from whithin the <span class="productname">X Window System</span> <span class="glossterm">server</span> on the <span class="glossterm">host <abbr>OS</abbr></span> to the <span class="glossterm">virtual appliance</span>. The <span class="glossterm">guest OS, </span> in this configuration, would be available via a a <span class="productname">VirtualBox</span> networking interface.</p>
+
+
     <ul>
-   	  <li><span class="productname">VirtualBox</span>
-       	<ul>
-           	  <li>Virtual Appliance Guest OS: Kubuntu (Ubuntu 14.04)
-           	    <ul>
-           	      <li>VirtualBox Guest Additions are installed on Guest OS</li>
-           	      <li>OpenSSH server is installed on guest OS</li>
+          <li><span class="productname">VirtualBox</span>
+        <ul>
+                  <li>Virtual Appliance Guest OS: Kubuntu (Ubuntu 14.04)
+                    <ul>
+                      <li>VirtualBox Guest Additions are installed on Guest OS</li>
+                      <li>OpenSSH server is installed on guest OS</li>
                   <li>SBCL is installed on guest OS</li>
                   <li>Orthogonal to this configuration: X.org is installed on guest OS</li>
-           	    </ul>
-           	  </li>
-            	<li>Virtual Appliance Host OS: Microsoft Windows 8.1
-            	  <ul>
-            	    <li>VirtualBox network adapter type, installed in host OS for accessing Guest via network: <em>NAT</em></li>
-            	    <li>Port forwarding configured on Host OS
-            	      <ul>
-            	        <li>Host OS IP address observed for NAT adapter: 192.168.50.1
-            	          <ul>
-            	            <li>Using this IP address as the &quot;Host IP&quot; address for the port forwarding configuration</li>
-            	            <li>IP address was determined via Microsoft Windows &quot;Network and Sharing Center&quot;</li>
-          	              </ul>
-            	        </li>
-            	        <li>Port forwarding &quot;Host port&quot; (arbitrary) 2222</li>
-            	        <li>Port forwarding &quot;Guest port&quot; 22 
-            	          <ul>
-            	            <li>SSH</li>
-            	            <li>&quot;Guest IP&quot; address is not required in this configuration</li>
-          	              </ul>
-            	        </li>
-           	          </ul>
-            	    </li>
-           	      </ul>
-            	</li>
+                    </ul>
+                  </li>
+                <li>Virtual Appliance Host OS: Microsoft Windows 8.1
+                  <ul>
+                    <li>VirtualBox network adapter type, installed in host OS for accessing Guest via network: <em>NAT</em></li>
+                    <li>Port forwarding configured on Host OS
+                      <ul>
+                        <li>Host OS IP address observed for NAT adapter: 192.168.50.1
+                          <ul>
+                            <li>Using this IP address as the &quot;Host IP&quot; address for the port forwarding configuration</li>
+                            <li>IP address was determined via Microsoft Windows &quot;Network and Sharing Center&quot;</li>
+                              </ul>
+                        </li>
+                        <li>Port forwarding &quot;Host port&quot; (arbitrary) 2222</li>
+                        <li>Port forwarding &quot;Guest port&quot; 22
+                          <ul>
+                            <li>SSH</li>
+                            <li>&quot;Guest IP&quot; address is not required in this configuration</li>
+                              </ul>
+                        </li>
+                          </ul>
+                    </li>
+                      </ul>
+                </li>
         </ul>
-   	  </li>
-   	  <li><span class="productname">Xming</span>
-   	    <ul>
-   	      <li>X Server for Windows</li>
-   	      <li>Embedded support for SSH port forwarding, integrating with Putty or Xming's own Portable Putty</li>
-   	      <li>Utility item: XLaunch file for launching Dolphin
-   	        <ul>
-   	          <li>XLaunch file created with &quot;-P 2222&quot; as additional args to PuTTY</li>
-   	          <li> launches Dolphin client on remote, with display on local Xming server</li>
-   	          <li> Dolphin can be used to launch terminal</li>
+          </li>
+          <li><span class="productname">Xming</span>
+            <ul>
+              <li>X Server for Windows</li>
+              <li>Embedded support for SSH port forwarding, integrating with Putty or Xming's own Portable Putty</li>
+              <li>Utility item: XLaunch file for launching Dolphin
+                <ul>
+                  <li>XLaunch file created with &quot;-P 2222&quot; as additional args to PuTTY</li>
+                  <li> launches Dolphin client on remote, with display on local Xming server</li>
+                  <li> Dolphin can be used to launch terminal</li>
             </ul>
-   	      </li>
+              </li>
         </ul>
-   	  </li>
-   	  <li><span class="productname">Common Lisp</span> Development Environment
-   	    <ul>
-           	  <li>SBCL on guest OS
-           	    <ul>
-           	      <li>CLX/Portable CLX</li>
-           	      <li>Garnet</li>
-       	        </ul>
-           	  </li>
-           	  <li>Utility item: SBCL on host OS</li>
-           	  <li>A rationale in selecting SBCL, in short summary: &quot;Because debugger&quot;</li>
-           	  <li>Possible concerns with regards to SBCL's thread interrupts model?</li>
-   	    </ul>
-   	  </li>
+          </li>
+          <li><span class="productname">Common Lisp</span> Development Environment
+            <ul>
+                  <li>SBCL on guest OS
+                    <ul>
+                      <li>CLX/Portable CLX</li>
+                      <li>Garnet</li>
+                </ul>
+                  </li>
+                  <li>Utility item: SBCL on host OS</li>
+                  <li>A rationale in selecting SBCL, in short summary: &quot;Because debugger&quot;</li>
+                  <li>Possible concerns with regards to SBCL's thread interrupts model?</li>
+            </ul>
+          </li>
     </ul>
     <h2>Procedure for a &quot;Test Session,&quot; in Numbered Steps</h2>
- 	<p>The goal of this test session shall be to ensure that the the items of "Stuff", as denoted in the previous, are successfully installed and configured.</p>
+        <p>The goal of this test session shall be to ensure that the the items of "Stuff", as denoted in the previous, are successfully installed and configured.</p>
 
 
  <blockquote class="sidebar ednote">
@@ -124,9 +124,9 @@
 <p><em>Ed. Note:</em> The reader might observe that this test utilizes Xming and CLX, exclusively for the purpose of running Garnet, in this single "Test Session". The author does not wish to discourage development with Garnet, though this article shall focus on KR. </p>
 <p>The configuration developed in this article may be of use, more broadly, in developing with CLX.</p>
  </blockquote>
-    
+
     <ol>
-    	<li>"Install stuff" (Host OS and Guest OS)</li>
+        <li>"Install stuff" (Host OS and Guest OS)</li>
         <li>"Configure stuff" (Host OS and Guest OS)</li>
         <li>Download Garnet (Guest OS)</li>
         <li>After same &quot;Stuff&quot; items have been successfully installed and configured, then using Xming (host OS), launch a terminal emulator (client on Guest OS) and in that terminal emulator, run SBCL</li>
@@ -145,77 +145,77 @@
 <blockquote class="endnote">
  <h2>Sidebar: NoMachine</h2>
       <p>During the development of this study, the <a href="http://www.nomachine.com/">NoMachine</a> remote desktop framework was studied for purpose of determining &mdash; albeit, in some regards, arbitrarily &mdash; whether NoMachine may be a useful element for the development environment denoted in the previous. It was hoped that NoMachine might provide -- via the NX protocol -- perhaps a more optimized alternative to the traditional X Window System protocols and client/server application as supported with Xming.</p>
-   	    <ul>
-   	      <li>See also: <a href="http://en.wikipedia.org.advanc.io/wiki/NX_technology">NX protocol</a>, as derived from <a href="http://www.vigor.nu/dxpc/">DXCP</a></li>
-   	      <li><em>Desktop remoting</em> protocols supported in NoMachine
-   	        <ul>
-   	          <li>???</li>
+            <ul>
+              <li>See also: <a href="http://en.wikipedia.org.advanc.io/wiki/NX_technology">NX protocol</a>, as derived from <a href="http://www.vigor.nu/dxpc/">DXCP</a></li>
+              <li><em>Desktop remoting</em> protocols supported in NoMachine
+                <ul>
+                  <li>???</li>
             </ul>
-   	      </li>
-   	      <li>Alternative to Xming ???
-   	        <ul>
-   	          <li>Desktop GUI performance?</li>
-   	          <li>Does NoMachine on Microsoft Windows <em>technically</em> provide an X Server on Microsoft Windows?</li>
-   	          <li>Would  NoMachine/NX be used by X clients started within a terminal connected initially via NoMachine/NX? Or would those clients revert to the default X protocol
-   	            <ul>
-   	              <li>&quot;Likely Answer:&quot; NO (?)</li>
-   	              <li>&quot;Extensional answer&quot;: Certainly, support for NX must be provided by the client application itself??</li>
-   	              <li>If the client application, itself, implements NX, then certainly the client application might use NX as an alternative to the baseline X11 protocol(s)</li>
-   	              <li>Therefore, if CLX doesn't implement NX at this time, then X Window System clients using CLX would not be able to use NX, at this time.</li>
+              </li>
+              <li>Alternative to Xming ???
+                <ul>
+                  <li>Desktop GUI performance?</li>
+                  <li>Does NoMachine on Microsoft Windows <em>technically</em> provide an X Server on Microsoft Windows?</li>
+                  <li>Would  NoMachine/NX be used by X clients started within a terminal connected initially via NoMachine/NX? Or would those clients revert to the default X protocol
+                    <ul>
+                      <li>&quot;Likely Answer:&quot; NO (?)</li>
+                      <li>&quot;Extensional answer&quot;: Certainly, support for NX must be provided by the client application itself??</li>
+                      <li>If the client application, itself, implements NX, then certainly the client application might use NX as an alternative to the baseline X11 protocol(s)</li>
+                      <li>Therefore, if CLX doesn't implement NX at this time, then X Window System clients using CLX would not be able to use NX, at this time.</li>
                 </ul>
-   	          </li>
+                  </li>
             </ul>
           </li>
-   	      <li>NoMachine installed on guest OS
-   	        <ul>
-   	          <li>The NX service binds, by default, to TCP port 4000</li>
-   	          <li>NoMachine installation would have created a configuration for integrating with CUPS printer sharing, if CUPS was installed on the guest OS when NoMachine was installed on the guest OS</li>
-   	          <li>Installed shell commands include:
-   	            <ul>
+              <li>NoMachine installed on guest OS
+                <ul>
+                  <li>The NX service binds, by default, to TCP port 4000</li>
+                  <li>NoMachine installation would have created a configuration for integrating with CUPS printer sharing, if CUPS was installed on the guest OS when NoMachine was installed on the guest OS</li>
+                  <li>Installed shell commands include:
+                    <ul>
                   <li><code class="command">nxnode (4.2.27)</code></li>
-   	              <li><code class="command">nxplayer (4.2.27)</code></li>
-   	              <li><code class="command">nxexec</code></li>
-   	              <li><code class="command">nxprint</code></li>
-   	              <li><code class="command">nxfsm</code></li>
+                      <li><code class="command">nxplayer (4.2.27)</code></li>
+                      <li><code class="command">nxexec</code></li>
+                      <li><code class="command">nxprint</code></li>
+                      <li><code class="command">nxfsm</code></li>
               </ul></li>
-   	          <li>See also: <code class="filename">/usr/NX/etc/node.cfg</code></li>
+                  <li>See also: <code class="filename">/usr/NX/etc/node.cfg</code></li>
             </ul></li>
-   	      <li>NoMachine is installed on host OS
-   	        <ul>
-   	          <li>Installation requires reboot</li>
-   	          <li>Configuration with VirtualBox network, as denoted above, requires an additional port forwarding assignment, e.g using &quot;Guest port&quot; 4000, &quot;Host port&quot; (arbitrary) 4040, other parameters the same.
+              <li>NoMachine is installed on host OS
+                <ul>
+                  <li>Installation requires reboot</li>
+                  <li>Configuration with VirtualBox network, as denoted above, requires an additional port forwarding assignment, e.g using &quot;Guest port&quot; 4000, &quot;Host port&quot; (arbitrary) 4040, other parameters the same.
 </li>
-   	          <li>NoMachine on the Host OS, in a connection to the NX service on the Guest OS, display a full screen interface to the host OS, under the user of login on the host OS -- but even insofar as displaying the KDM login screen (RDP??)</li>
-   	          <li>Protocols not thoroughly documented</li>
-   	          <li>Possibly applicable in the development environment as an alternative to using RDP for login to the VirtualBox guest OS</li>
-   	          <li>NoMachine finds applications throughout enterprise networks</li>
-   	        </ul>
-   	      </li>
-   	      <li> NoMachine is also available for the Android and  iOS tablet platforms</li>
-   	      <li>See also: 
-   	        <ul>
-   	          <li><a href="https://www.nomachine.com/getting-started-with-nomachine"><em>Getting Started with NoMachine</em></a></li>
-   	          <li><em><a href="./https://www.nomachine.com/documents?keys=&amp;type%5Bdocuments_type%5D=documents_type&amp;articleName=&amp;form_build_id=form-fd809ad405b331a58e981b86587a1afe&amp;field_appliesto_value_many_to_one=All&amp;custom_filter=any&amp;documentName=">Documentation</a></em><a href="./https://www.nomachine.com/documents?keys=&amp;type%5Bdocuments_type%5D=documents_type&amp;articleName=&amp;form_build_id=form-fd809ad405b331a58e981b86587a1afe&amp;field_appliesto_value_many_to_one=All&amp;custom_filter=any&amp;documentName="> in the NoMachine <em>Knowledge Base</em></a></li>
-   	          <li><em><a href="https://www.nomachine.com/version-3">Legacy NoMachine Version 3 Software</a></em></li>
-   	          <li><em><a href="https://www.nomachine.com/AR01C00142">How can I Get Involved in NX Development</a>?</em></li>
-   	          <li><a href="https://www.nomachine.com/opensource">NoMachine Open Source Software</a> components
-<ul>
-   	              <li>...focusing primarily on <em>nxcodec</em>
-   	                <ul>
-   	                  <li>towards FFI + CCL ETC</li>
-   	                  <li><em>with or without documentation</em></li>
-                    </ul>
-   	              </li>
-   	              <li>observe &quot;MinGW64-i686&quot; </li>
-   	              <li>direct download (not SCCM)</li>
-   	              <li>current NoMachine version is 4.2.27</li>
+                  <li>NoMachine on the Host OS, in a connection to the NX service on the Guest OS, display a full screen interface to the host OS, under the user of login on the host OS -- but even insofar as displaying the KDM login screen (RDP??)</li>
+                  <li>Protocols not thoroughly documented</li>
+                  <li>Possibly applicable in the development environment as an alternative to using RDP for login to the VirtualBox guest OS</li>
+                  <li>NoMachine finds applications throughout enterprise networks</li>
                 </ul>
-   	          </li>
+              </li>
+              <li> NoMachine is also available for the Android and  iOS tablet platforms</li>
+              <li>See also:
+                <ul>
+                  <li><a href="https://www.nomachine.com/getting-started-with-nomachine"><em>Getting Started with NoMachine</em></a></li>
+                  <li><em><a href="./https://www.nomachine.com/documents?keys=&amp;type%5Bdocuments_type%5D=documents_type&amp;articleName=&amp;form_build_id=form-fd809ad405b331a58e981b86587a1afe&amp;field_appliesto_value_many_to_one=All&amp;custom_filter=any&amp;documentName=">Documentation</a></em><a href="./https://www.nomachine.com/documents?keys=&amp;type%5Bdocuments_type%5D=documents_type&amp;articleName=&amp;form_build_id=form-fd809ad405b331a58e981b86587a1afe&amp;field_appliesto_value_many_to_one=All&amp;custom_filter=any&amp;documentName="> in the NoMachine <em>Knowledge Base</em></a></li>
+                  <li><em><a href="https://www.nomachine.com/version-3">Legacy NoMachine Version 3 Software</a></em></li>
+                  <li><em><a href="https://www.nomachine.com/AR01C00142">How can I Get Involved in NX Development</a>?</em></li>
+                  <li><a href="https://www.nomachine.com/opensource">NoMachine Open Source Software</a> components
+<ul>
+                      <li>...focusing primarily on <em>nxcodec</em>
+                        <ul>
+                          <li>towards FFI + CCL ETC</li>
+                          <li><em>with or without documentation</em></li>
+                    </ul>
+                      </li>
+                      <li>observe &quot;MinGW64-i686&quot; </li>
+                      <li>direct download (not SCCM)</li>
+                      <li>current NoMachine version is 4.2.27</li>
+                </ul>
+                  </li>
             </ul>
-   	      </li>
+              </li>
       </ul>
-   	  
-   	 
+
+
 </blockquote>
 
   </div><!-- .content -->
