@@ -47,22 +47,93 @@
 <h2 id="uex">Usage Examples</h2>
     <h3>Applications in Geometry</h3>
     <ul>
-      <li>Pythagorean Theorem (classic example)</li>
-      <li>Relations among Trigonometric Functions</li>
-      <li>Logarithmic Function as Inverse of Exponential Function</li>
-    </ul>
-    <h3>Applications in Electrical Science</h3>
+      <li><strong>Pythagorean Theorem</strong>
+        <ul>
+          <li><strong><em>Trivial Demonstration:</em></strong> Lengths of sides of a right triangle: Given a right triangle with hypotenuse of length <em>c</em>, rectilinear sides of lenghs <em>a</em> and <em>b, </em>ensure that a KR <em>schema</em> is defined such that with any sequential change to each of <em>a</em>, <em>b</em>, or <em>c, </em>the change will be reflected in the other variables, per the calculation of the Pythagorean Theorem.      </li>
+        </ul>
+      </li>
+      <li><strong>Relations among Trigonometric Functions</strong>
+<ul>
+          <li><strong><em>Trivial Demonstration</em></strong>
+            <ul>
+              <li><strong><em>Part 1:</em></strong> Relations of &quot;Baseline&quot; trigonometric functions, i.e. <em>sine</em>, <em>cosine</em>, and <em>tangent</em></li>
+              <li><em><strong>Part 2:</strong> </em>Addition of further geometric constraints, as per <em>Law of Sines</em></li>
+            </ul>
+          </li>
+          <li><strong><em>Demonstration onto Inverse Trigonometric Functions:</em></strong> Relations of <em>inverse trigonometric functions</em>, i.e <em>arcsine</em>, <em>arccosine</em>, and <em>arctangent </em>within the set of those three trignometric functions, and furthermore in relations towards the &quot;Baseline&quot; trigonometric functions.</li>
+          <li><strong><em>Demonstration onto Hyperbolic Trigonometric Functions:</em></strong> Relations of <em>hyperbolic trigonometric functions</em>, with regards to other <em>trigonometric functions</em>, exponents of <em>Euler's constant</em>, and conversely, the <em>natural logarithm</em></li>
+        </ul>
+      </li>
+      <li><strong>&quot;Blue Sky&quot; Demonsration: </strong> Polar Graphs of Functional Relations
+        <ul>
+          <li><em><strong>Trivial Example:</strong></em> Graph of a trigonometric function <em>r = f(&theta;)</em> on a polar coordinate plane, for reach of  <em>sin(</em><em>&theta;</em>), <em>cos(</em><em>&theta;</em>), <em>tan(&theta;</em>), observing a conventional methodology for denoting when <em>r = undefined</em></li>
+        <li><em><strong>Non-Trivial Example:</strong></em> Graph of a periodic waveform, with <em>&theta;</em> = angular momentum <em>(&omega;), r =</em> <em>t</em></li></ul>
+      </li>
+    <li><strong>Relation of Natural Logarithmic Function to Exponents of Euler's Constant</strong></li></ul>
+    <h3>Applications in Electrical Science - &quot;KR and Beyond&quot;</h3>
     <ul>
-    <li>Ohm's Law</li>
-    <li>Calculation of Equivalent Resistance, Capacitance, or Inductance, in series and parallel circuits (six individual formulae, simple <em>sum</em> or <em>inverse of sum of inverses</em>)</li>
+    <li><strong>Ohm's Law</strong>
+<ul>
+  <li>Instantaneous relation of electrical current, voltage, and resistance</li>
     </ul>
-	<p>
-    <em><strong>Recommended reading:</strong></em> 
-    	<a href="#bib.Nahvi2014" name="bibref.Nahvi2014.1">Nahvi2014</a>, 
-        <a href="#bib.Spiegel1972" name="bibref.Spiegel1972.1">Spiegel1971</a>, 
-        <a href="#bib.Lipschutz1959" name="bibref.Lipschutz1959.1">Lipschutz1959</a>, and 
-        <a href="#bib.Ayres2013" name="bibref.Ayres2013.1">Ayres2013</a>
-	</p>
+    </li>
+    <li>Calculation of Qualities of <strong>Equivalent Resistance, Capacitance, and Inductance</strong>, in series and parallel circuits
+<ul>
+        <li>Six individual applicaitons of two distinct forumlae
+          <ul>
+            <li> simple <em>sum</em> </li>
+            <li><em>inverse of sum of inverses</em></li>
+          </ul>
+        </li>
+        <li>Programmatic, block-level analysis for reduction  of series and parallel values to equivalent values (ESR, etc)
+          <ul>
+            <li>Iterative applications using the bionmial &quot;product over sum&quot; formula, as appropriate to the nature of the electrical quality being reduced (e.g. parallel electrical resistance) across a circuit's block diagram</li>
+            <li><em>Sidebar:</em> Tail recursion optimiztion in Common Lisp implementations</li>
+          </ul>
+        </li>
+        </ul>
+    </li>
+    <li><strong>Phase Diagrams
+      </strong>
+      <ul>
+        <li>Phase differential as illustrated in graph of periodic current or voltage, onto Cartesian coordinate plane</li>
+        <li>Phase differential as illustrated instantaneously of a vector sum in </li>
+        calculation of electrical reactance or impedance
+        <li>Block-level analysis of phase differentials</li>
+        </ul>
+    </li>
+    <li><strong>Resonance Analysis for AC Circuits</strong>
+<ul>
+  <li>Calculation of resonance frequency for RLC circuit
+          <ul>
+            <li>Verify with functional tests</li>
+          </ul>
+        </li>
+        <li>Calculation of appropriate series and/or parallel <em>inductance</em> and <em>capacitance</em>, in circuit design, so as to ensure <em>resonance</em> of contrasting phase angles between <em>inductive reactance</em> and <em>capacitive reactance</em> in an RLC circuit (series and/or parallel)
+          <ul>
+            <li>Verify with resonsnace frequency calculation</li></ul>
+        </li>
+      </ul>
+    </li>
+    <li><strong>Timing Analysis</strong>
+<ul>
+  <li><em>Time constant</em> in AC circuits</li>
+      </ul>
+    </li>
+    <li><strong>Digital Circuit Modeling</strong>
+<ul>
+  <li>Data-flow modeling for logical and functional behaviors of integrated circuits</li>
+  <li>Digital timing analysis (block level)</li>
+      </ul>
+    </li>
+    </ul>
+    <p>
+      <em><strong>Recommended reading:</strong></em> 
+      <a href="#bib.Nahvi2014" name="bibref.Nahvi2014.1">Nahvi2014</a>, 
+      <a href="#bib.Spiegel1972" name="bibref.Spiegel1972.1">Spiegel1971</a>, 
+      <a href="#bib.Lipschutz1959" name="bibref.Lipschutz1959.1">Lipschutz1959</a>, and 
+      <a href="#bib.Ayres2013" name="bibref.Ayres2013.1">Ayres2013</a>
+</p>
 
     <h2 id="devenv">Outline of a Desktop Development Environment</h2>
 
@@ -234,10 +305,10 @@
     <table>*
 
       <tr class="biblioentry">
-        <td class="biblioid"><a name="bib.Nahvi2014">Nahvi2014</a></td>
-        <td class="biblioinfo">Nahvi, Mahmood and Joseph A. Edminister. <em>Schaum's Outline of Electric Circuits</em>. 6th edition. McGraw-Hill (New York). 2014
+        <td width="22%" class="biblioid"><a name="bib.Nahvi2014">Nahvi2014</a></td>
+        <td width="60%" class="biblioinfo">Nahvi, Mahmood and Joseph A. Edminister. <em>Schaum's Outline of Electric Circuits</em>. 6th edition. McGraw-Hill (New York). 2014
         </td>
-        <td class="bibliorefs">
+        <td width="18%" class="bibliorefs">
           <div><strong>References</strong></div>
           <ul>
             <li><a href="#bibref.Nahvi2014.1">1</a></li>
