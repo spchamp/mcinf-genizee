@@ -73,9 +73,30 @@
 	font-weight: bold;	
 }
 
-.filename {;
+.filename {
 	font-style: oblique;		
 }
+
+.revbranch {
+	font-style: oblique;
+}
+
+.revremote {
+	font-style: oblique;
+	font-weight: bold;	
+}
+
+blockquote.snippet {
+	
+}
+
+blockquote.snippet pre {
+	border-style: solid none solid none;
+	margin: 0 0.8em 0 0;
+	padding: 0.6em 0.8em 2.1em 0.6em;
+	border-width: 1pt;
+}
+
 
 .citation {
 	
