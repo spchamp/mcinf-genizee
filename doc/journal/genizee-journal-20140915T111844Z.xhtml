@@ -48,8 +48,13 @@
     
     <h2>Outline of a Desktop Development Environment</h2>
     
+	<p>This outline proposes a model for <span class="productname">CLX</span> development on a <span class="productname">Microsoft Windows</span> platform. In the model described herein, <span class="productname">VirtualBox</span> is applied in developing a <em class="glossterm">virtualized</em> <span class="productname">Linux</span> operating system within a <span class="productname">VirtualBox</span> <em class="glossterm">Virtual Appliance</em>. That <em>Virtual Appliance</em> may be accessed directly via <span class="productname">VirtualBox</span>' desktop integration, or alternately, via an <span class="productname">SSH</span> tunnel over a <span class="productname">VirtualBox</span> networking interface. </p>
+	<p>Using <span class="productname">SSH</span> tunneling, with the <span class="productname">Xming</span> <em class="glossterm">server</em> installed on a <span class="productname">Microsoft Windows</span> desktop &mdash; that, serving as the <span class="glossterm">host <abbr>OS</abbr></span> to the <span class="glossterm">virtual appliance</span>  &mdash; then any <span class="productname">X Window System</span> <span class="glossterm">client</span> applications installed on the <span class="glossterm">guest OS</span> may be accessed &mdash; as though <em>remotely</em> &mdash; via the <span class="productname">X Window System</span> <span class="glossterm">client-server protocols</span>, from within the <span class="productname">X Window System</span> <em class="glossterm">server</em>, on the <span class="glossterm">host <abbr>OS</abbr></span>. </p>
+	<p>Furthermore, with a configuration such as denoted herein, the <span class="productname">Linux</span> <span class="glossterm">guest OS</span> may be configured so as to <em>boot</em> to a <em>runlevel</em>, such that an <span class="productname">X Window System</span> <span class="glossterm">display manager</span> would not be initialized during the system boot process &mdash; therefore, not expending machine resources on a service unused, in such a configuration. Whether with or without an <span class="productname">X Window System</span> <span class="glossterm">display manager</span>, however, this configuration would allow for remote <span class="productname">X Window System</span> access via<span class="productname"> SSH. </span>Using <span class="productname">SSH</span> tunneling, this configuration would allow for runnning any <span class="productname">X Window System</span> <span class="glossterm">client processes</span> on the <span class="glossterm">guest OS</span>, from whithin the <span class="productname">X Window System</span> <span class="glossterm">server</span> on the <span class="glossterm">host <abbr>OS</abbr></span> to the <span class="glossterm">virtual appliance</span>. The <span class="glossterm">guest OS, </span> in this configuration, would be available via a a <span class="productname">VirtualBox</span> networking interface.</p>
+   
+   
     <ul>
-   	  <li>VirtualBox
+   	  <li><span class="productname">VirtualBox</span>
        	<ul>
            	  <li>Virtual Appliance Guest OS: Kubuntu (Ubuntu 14.04)
            	    <ul>
@@ -83,7 +88,7 @@
             	</li>
         </ul>
    	  </li>
-   	  <li>Xming
+   	  <li><span class="productname">Xming</span>
    	    <ul>
    	      <li>X Server for Windows</li>
    	      <li>Embedded support for SSH port forwarding, integrating with Putty or Xming's own Portable Putty</li>
@@ -96,8 +101,8 @@
    	      </li>
         </ul>
    	  </li>
-   	  <li>Common Lisp Environment
-       	  <ul>
+   	  <li><span class="productname">Common Lisp</span> Development Environment
+   	    <ul>
            	  <li>SBCL on guest OS
            	    <ul>
            	      <li>CLX/Portable CLX</li>
@@ -105,12 +110,12 @@
        	        </ul>
            	  </li>
            	  <li>Utility item: SBCL on host OS</li>
-           	  <li>A rationale in selecting SBCL, in short summary: &quot;Because debugger, and also CTypes and VOPs&quot;</li>
-           	  <li>Possible concerns with regards to interrupts model?</li>
+           	  <li>A rationale in selecting SBCL, in short summary: &quot;Because debugger&quot;</li>
+           	  <li>Possible concerns with regards to SBCL's thread interrupts model?</li>
    	    </ul>
    	  </li>
     </ul>
-    <h2>A &quot;Test Session&quot; Procedure, in Numbered Steps</h2>
+    <h2>Procedure for a &quot;Test Session,&quot; in Numbered Steps</h2>
  	<p>The goal of this test session shall be to ensure that the the items of "Stuff", as denoted in the previous, are successfully installed and configured.</p>
 
 
