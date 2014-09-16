@@ -160,32 +160,24 @@
 
 
 <blockquote class="endnote">
- <h2>Sidebar: NoMachine</h2>
-      <p>During the development of this study, the <a href="http://www.nomachine.com/">NoMachine</a> remote desktop framework was studied for purpose of determining &mdash; albeit, in some regards, arbitrarily &mdash; whether NoMachine may be a useful element for the development environment denoted in the previous. It was hoped that NoMachine might provide -- via the NX protocol -- perhaps a more optimized alternative to the traditional X Window System protocols and client/server application as supported with Xming.</p>
+ <h2>Sidebar: A Short Study of NoMachine</h2>
+      <p>During the development of this article, the <a href="http://www.nomachine.com/">NoMachine</a> remote desktop framework was studied briefly, namely for a purpose of determining &mdash; albeit, in some arbitary regards&mdash; whether NoMachine would be used as an element in the development environment denoted in this article. .</p>
             <ul>
-              <li>See also: <a href="http://en.wikipedia.org.advanc.io/wiki/NX_technology">NX protocol</a>, as derived from <a href="http://www.vigor.nu/dxpc/">DXCP</a></li>
-              <li><em>Desktop remoting</em> protocols supported in NoMachine
+              <li><em><strong>See also:</strong></em> <a href="http://en.wikipedia.org.advanc.io/wiki/NX_technology">NX protocol</a>, as derived from <a href="http://www.vigor.nu/dxpc/">DXCP</a></li>
+              <li><strong><em>Sidebar: </em></strong><em>Desktop remoting</em> protocols supported in NoMachine
                 <ul>
-                  <li>???</li>
-            </ul>
-              </li>
-              <li>Alternative to Xming ???
-                <ul>
-                  <li>Desktop GUI performance?</li>
-                  <li>Does NoMachine on Microsoft Windows <em>technically</em> provide an X Server on Microsoft Windows?</li>
-                  <li>Would  NoMachine/NX be used by X clients started within a terminal connected initially via NoMachine/NX? Or would those clients revert to the default X protocol
-                    <ul>
-                      <li>&quot;Likely Answer:&quot; NO (?)</li>
-                      <li>&quot;Extensional answer&quot;: Certainly, support for NX must be provided by the client application itself??</li>
-                      <li>If the client application, itself, implements NX, then certainly the client application might use NX as an alternative to the baseline X11 protocol(s)</li>
-                      <li>Therefore, if CLX doesn't implement NX at this time, then X Window System clients using CLX would not be able to use NX, at this time.</li>
+                  <li>NX</li>
+                  <li>Others?</li>
                 </ul>
-                  </li>
+              </li>
+              <li><em><strong>Na&iuml;ve Question: </strong></em>May NoMacine provide an alternative to Xming, in this development environment?
+<ul>
+            <li><em><strong>Goal sought:</strong></em> Optimized desktop GUI performance in communication between <em class="glossterm">guest OS</em> and <em class="glossterm">host OS</em></li>
             </ul>
           </li>
-              <li>NoMachine installed on guest OS
+              <li><strong><em>Framework Property: </em></strong>NoMachine installed on <em>guest OS </em>
                 <ul>
-                  <li>The NX service binds, by default, to TCP port 4000</li>
+            <li>The NX service binds, by default, to TCP port 4000</li>
                   <li>NoMachine installation would have created a configuration for integrating with CUPS printer sharing, if CUPS was installed on the guest OS when NoMachine was installed on the guest OS</li>
                   <li>Installed shell commands include:
                     <ul>
@@ -197,12 +189,12 @@
               </ul></li>
                   <li>See also: <code class="filename">/usr/NX/etc/node.cfg</code></li>
             </ul></li>
-              <li>NoMachine is installed on host OS
-                <ul>
-                  <li>Installation requires reboot</li>
+              <li><strong><em>Framework Property:</em></strong> NoMachine installed on <em>host OS</em>
+<ul>
+            <li>Installation requires reboot</li>
                   <li>Configuration with VirtualBox network, as denoted above, requires an additional port forwarding assignment, e.g using &quot;Guest port&quot; 4000, &quot;Host port&quot; (arbitrary) 4040, other parameters the same.
 </li>
-                  <li>NoMachine on the Host OS, in a connection to the NX service on the Guest OS, display a full screen interface to the host OS, under the user of login on the host OS -- but even insofar as displaying the KDM login screen (RDP??)</li>
+                  <li>NoMachine on the Host OS, in a connection to the NX service on the Guest OS, display a full screen interface to the host OS, under the user of login on the host OS -- even insofar as displaying the KDM login screen (RDP??)</li>
                   <li>Protocols not thoroughly documented</li>
                   <li>Possibly applicable in the development environment as an alternative to using RDP for login to the VirtualBox guest OS</li>
                   <li>NoMachine finds applications throughout enterprise networks</li>
@@ -239,7 +231,7 @@
 
   <div id="bibliography">
     <h2>Bibliography</h2>
-    <table>
+    <table>*
 
       <tr class="biblioentry">
         <td class="biblioid"><a name="bib.Nahvi2014">Nahvi2014</a></td>
