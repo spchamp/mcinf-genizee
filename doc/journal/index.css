@@ -1,0 +1,46 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+body {
+padding: 0;
+margin: 0;	
+}
+
+
+.index > .metadata {
+	border-bottom-style: solid;
+}
+
+.index > .metadata .title {
+	margin: 0;
+	padding: 0.4em 0.4em .3em; 0.4em;
+}
+
+.index > h2 {
+	font-style: oblique;
+	padding-left: 0.6em	
+}
+
+.index > ul {
+	margin: 1.1em;
+	padding: 0;
+	border-style: none solid solid solid;
+	border-width: 1pt;
+}
+
+.index > ul > li {
+	list-style-type: none;
+	padding: 0.23em 0.23em 0.23em 1.2em;
+	border-top-style: solid;
+	border-width: 1pt;
+}
+
+.index > ul > li a {
+	text-decoration: none;	
+}
+
+
+.footer {
+	text-align: center;
+	font-size: 65%;	
+}
