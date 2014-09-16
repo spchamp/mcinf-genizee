@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>State of the Pick Axe &mdash; A Review of Current Develpoments in the Genizee Project</title>
+	<link href="section.css" rel="stylesheet" type="text/css" />
+	<link href="article.css" rel="stylesheet" type="text/css" />
+</head>
+
+<div class="article">
+
+  <div class="metadata">
+    <h1 class="title">State of the Pick Axe &mdash; A Review of Current Develpoments in the Genizee Project</h1>
+    <div class="author">Sean Champ</div>
+    <div class="pubdate">16 September, 2014</div>
+    <div class="revision">Revision 1.0</div>
+  </div><!-- .metadata -->
+  
+  <div class="content">
+  	<h2>Garnet &ndash; Multiple Forks, One Platform</h2>
+    
+<h3>Official Source Repostories of the Garnet Lisp Project</h3>
+    
+    <p>The official <a href="http://sourceforge.net/p/garnetlisp/">Garnet Lisp project</a> at SourceForge.net publishes two distinct source code repositories:</p>
+    
+    <ul>
+    	<li><abbr>SVN</abbr> Repository of Garnet Lisp Project (<a href="http://sourceforge.net/p/garnetlisp/svn/HEAD/tree/trunk/">Web View</a>)</li>
+        <li><abbr>CVS</abbr> Repository of Garnet Lisp Project (<a href="garnetlisp.cvs.sourceforge.net/viewvc/garnetlisp/">Web view</a>) (<a href="http://sourceforge.net/p/garnetlisp/code/">Info</a>)</li>      
+    </ul>
+  
+  	<p>Briefly reviewing the revision logs of the respective repositires, it appears that the <abbr>SVN</abbr> repository is the most up-to-date of the two parallel source code repositories. </p>
+    
+    <h3>Creating {B} to {A}</h3>
+    
+  	<p>The Garnet Lisp Project <abbr>SVN</abbr> repository has been mirrored in the <a href="https://github.com/MetaCommunity/garnet">Garnet fork</a> published by the MetaCommunity.info (MCi) Project. That mirror was begun, specifically in the <a href="https://github.com/MetaCommunity/garnet/tree/garnetlisp"><code><em>garnetlisp</em></code> branch</a>  (<a href="https://github.com/MetaCommunity/garnet/commit/2a84f024e43f5e167e211d6881821e5b6baca853">revision mark</a>). That <em>branch</em> was created originally with the <span class="command">git svn</span> command, before being added to the <a href="https://github.com/MetaCommunity/garnet">Garnet Fork</a> published by the MCi Project.</p>
+
+<blockquote class="snippet">
+<p class="annotation">The following <em class="glossterm">shell</em> <em class="glossterm">commands</em> create an individual <em class="glossterm">source tree</em>, in such a manner as that the <em class="glossterm">source tree</em> would reside, on the local filesystem, in parallel to any existing <em class="glossterm">source tree</em> on the local filesystem. As an advisory comment: It may be possible to use <code class="command">git svn</code> to append a <em class="glossterm">branch</em> immediately to an existing <code class="command">git</code> <em class="glossterm">source tree</em>. However, in order to ensure a clean <em>bare root</em> for the <code class="revbranch">garnetlisp</code> <em class="glossterm">branch</em> subsequently created in these <em class="glossterm">shell</em> <em class="glossterm">commands, </em> a seperate <em class="glossterm">source tree</em> is created, before being appended to the second <em class="glossterm">remote</em> <em class="glossterm">repository</em></p>
+
+<pre><strong>cd</strong> ~/workspace/ws-genizee
+
+## Create Git repository at
+##
+##    ~/workspace/ws-genizee/garnetlisp
+##
+## from 
+##
+##    <u>svn://svn.code.sf.net/p/garnetlisp/svn/</u>
+##
+## observing that the garnetlisp SVN tree layout
+## is a standard layout, with 'tags', 'branches', 
+## and 'trunk' folders
+## 
+## The local Git source tree is created under
+## the remote prefix 'origin'
+##
+<strong>git svn</strong> -s --prefix=<strong><em>origin/</em></strong> clone \
+    <u>svn://svn.code.sf.net/p/garnetlisp/svn/</u> garnetlisp 
+
+<strong>cd</strong> garnetlisp
+
+## Create branch named <em>garnetlisp</em>
+## beginning from current local <em>master</em> branch
+## in repository at ~/workspace/ws-genizee/garnetlisp
+## then update the source tree to use that branch
+##
+<strong>git branch</strong> <em>garnetlisp</em> 
+<strong>git checkout</strong> <em>garnetlisp</em>
+
+## push the local <em>garnetlisp</em> branch
+## to the (new) <em>garnetlisp</em> branch under 
+## the existing MetaCommunity Garnet repository
+##
+<strong>git remote</strong> add <em><strong>mcigarnet</strong></em> --tags -t <em>garnetlisp</em> \
+	<u>git@github.com:MetaCommunity/garnet.git</u>
+<strong>git push</strong> <em><strong>mcigarnet</strong></em> <em>garnetlisp</em></pre>
+</blockquote>
+
+<p>The <code class="revbranch">garnet<span>lisp</span></code> <em class="glossterm">branch</em> &mdash; as thusly created in the <abbr>MCi</abbr> <span class="productname">Garnet</span> <em class="glossterm">repository</em> &mdash; thus has a <em>"bare root"</em> in the <em class="glossterm">repository</em> &mdash; a <em class="glossterm">branch</em> beginning not from any existing <em class="glossterm">branch</em> in the <em class="glossterm">repository</em>. The same"Bare root" condition, perhaps, may be well addressed in subsequent endeavors. </p>
+<blockquote>
+<p>...  as using <code class="command">git cvs</code> to create another local <em class="glossterm">source tree</em>, with a <em class="glossterm">branch</em> <code class="revbranch">cvs<span>garnet</span>lisp</code>. Similarly, <code class="command">git push</code> would be applied so as to add that new <em class="glossterm">source tree</em> &mdash; then under local <em class="glossterm">branch</em> <code class="revbranch">cvs<span>garnet</span>lisp</code> &mdash; to create a new <em class="glossterm">branch</em>, <code class="revbranch">cvs<span>garnet</span>lisp</code> under the <code class="revremote">mcigarnet</code> <em class="glossterm">remote</em>. Subsequently, any local <em class="glossterm">source tree</em> derived from <code class="revremote">mcigarnet</code> <em class="glossterm">remote</em> may be updated &mdash; as using <code class="command">git pull</code> &mdash;  so as to add the <code class="revbranch">cvs<span>garnet</span>lisp</code> <em class="glossterm">branch</em> under the <code class="revremote">mcigarnet</code> <em class="glossterm">remote</em> then into the other local <em class="glossterm">source tree</em>. </p>
+<p>Following a review of the <em class="glossterm">source code</em> then under the <code class="revbranch">cvs<span>garnet</span>lisp</code> <em class="glossterm">branch</em>&mdash; presuming that the <em class="glossterm">revision history </em>of that <em class="glossterm">branch</em> may serve to indicate whether that <em class="glossterm">branch</em> does or does not reprsent the <em>revision tree origin</em> of any of the other <em class="glossterm">branches </em> in the <em class="glossterm">repository</em> &mdash; then the <code><strong>git rebase</strong></code> command may be applied, so as to update the <em class="glossterm">revision tree </em>of any of the other <em class="glossterm">branch</em>es then existing in the <em class="glossterm">source repository</em> of the the <code class="revremote">mcigarnet</code> <em class="glossterm">remote</em>, insofar as to indicate where was the <em>revision tree origin</em> of each respective <em class="glossterm">branch</em>. Ideally, the entire <code class="revremote">mcigarnet</code> <em class="glossterm">remote</em> would contain a single, consistent revision tree, with no <em>&quot;bare root&quot;</em> conditions. </p>
+</blockquote>
+<!-- 
+<ul>
+<li><code class="revbranch">mmgarnet</code> <em class="glossterm">branch</em>, originally <em class="glossterm">forked</em> from <code><a href="https://github.com/mmontone/garnet">mmontone/garnet</a></code></li>
+<li><code class="revbranch">garnetlisp</code> <em class="glossterm">branch</em>, originally from the official Garnet Lisp project's own <a href="http://sourceforge.net/p/garnetlisp/svn/HEAD/tree/trunk/"><abbr>SVN</abbr> repository</a></li>
+<li><code class="revbranch">master</code> <em class="glossterm">branch</em>, derived originally from <code>mmontone/garnet</code></li>
+</ul>
+-->
+
+<h3>Having Created {D} to {C}</h3>
+
+<p>The <em><a href="https://github.com/MetaCommunity/garnet/tree/master"><code>master</code></a></em><a href="https://github.com/MetaCommunity/garnet/tree/master"> branch</a> of the MetaCommunity.info Garnet fork (at <a href="https://github.com/MetaCommunity/garnet/commit/1652af38f76b1c4efb19bc31cfbae9197817a786">revision mark</a>) was derived   originally from the Garnet created by Mariano Montone. The MetaCommunity.info Garnet fork was created using the web-based resource management interface at Github. An essential result was as to <em class="glossterm">fork</em> <code><a href="https://github.com/mmontone/garnet">mmontone/garnet</a></code>, thus creating a repository <code><a href="https://github.com/MetaCommunity/garnet">MetaCommunity/garnet</a></code> with its  <a href="https://github.com/MetaCommunity/garnet/tree/master"><code class="revbranch">master</code>  branch</a> derived directy from the corresponding <a href="https://github.com/mmontone/garnet/tree/master"><code class="revbranch">master</code> branch</a> of the <code><a href="https://github.com/mmontone/garnet">mmontone/garnet</a></code> repostiory. </p>
+<p>Reviewing the revision logs of the branch created from the <code><a href="https://github.com/mmontone/garnet">mmontone/garnet</a></code> repository, it appears that that source tree <em>was not</em> originally derived from the official Garnet <abbr>SVN</abbr> source tree. It may have been derived from the official <abbr>CVS</abbr> source tree, instead? Presumably, the Garnet <abbr>SVN</abbr> source tree, itself, also may have been derived from the official <abbr>CVS</abbr> source tree.</p>
+<p>Between the 'trunk' source tree of the official Garnet <abbr>SVN</abbr> repository and the 'master' source tree of the <code><a href="https://github.com/mmontone/garnet">mmontone/garnet</a></code> repository, it would seem that the two respective upstream soucd trees have undergone, largely, a seperate evolution since after the time Garnet was originally published.</p>
+<p>A brief, albeit superficial review was performed, to determine a small sample of the differences between the two respective <em>upstream repositories</em>, in revisions at and proceeding towards each respective <em>revision mark</em> &mdash; namely, of those reposotireis that were a <em class="glossterm">revision tree source</em> of, respectively, the <code class="revbranch">garnetlisp</code> <em class="glossterm">branch</em> and the <code class="revbranch">mmgarnet</code> <em class="glossterm">branch</em>, with their revision histories being retained in each endeavor &mdash; it had seemed that a full <em>merge</em> between the two respective <em>upstream source trees</em> would require a substantial amount of manual merging, to complete the merge successfully. Moreover, it was observed that the original <code class="revbranch">garnetlisp</code> <em class="glossterm">branch</em>  had been more recently updated, asto include some specific support for Clozure Common Lisp (CCL), a Common Lisp implementaion certainly much favorable for its support for the ARM microprocessor architecture, as well as CCL's integration native C libraries  &mdash; such that may be observed as towards some paritucular focus, with a brief sidebar about the Linux Kernel  &mdash; such as that the Linux kernel architecture, consistently, is written in the C programming language, and the Linux kernel implements support for a realtime, deterministic timing model, such as would be required in applications of a realtime operating system (RTOS), in any hobbyist, industrial, academic, or consumer applications.</p>
+<p>Subsequently, on one Granite PC the <em><a href="https://github.com/MetaCommunity/garnet/tree/master"><code>master</code></a></em><a href="https://github.com/MetaCommunity/garnet/tree/master"> branch</a> &mdash; in the local copy of the MCi Garnet source tree &mdash; the branch was renamed to <code class="revbranch">mmgarnet</code>, and a new <code class="revbranch">master</code>branch was created &mdash; such that that branch would derive, instead, from the <code class="revbranch">garnetlisp</code> <em class="glossterm">branch</em>.</p>
+
+<h3>A Repository Model in Four Branches Integrating Three Upstream Repositories</h3>
+
+<p>After the further work for integration of the official Garnet CVS repository, this creates four distinct branches:</p>
+<ul>
+  <li><code class="revbranch">mmgarnet</code> <em class="glossterm">branch, </em>with revision tree source: <code><a href="https://github.com/mmontone/garnet">mmontone/garnet</a></code></li>
+  <li><code class="revbranch">garnetlisp</code> <em class="glossterm">branch</em>, <em class="glossterm"></em>with revision tree source: The official Garnet Lisp project's own <a href="http://sourceforge.net/p/garnetlisp/svn/HEAD/tree/trunk/"><abbr>SVN</abbr> repository</a></li>
+  <li><code class="revbranch">cvsgarnetlisp</code> <em class="glossterm">branch</em>, <em class="glossterm"></em>with revision tree source: The official Garnet Lisp project's own <abbrev>CVS</abbrev> repository  (<a href="garnetlisp.cvs.sourceforge.net/viewvc/garnetlisp/">Web view</a>) (<a href="http://sourceforge.net/p/garnetlisp/code/">Info</a>)</li>
+  <li><code class="revbranch">master</code> <em class="glossterm">branch</em>, derived originally from <code class="revbranch">garnetlisp</code></li>
+</ul>
+In a textual shorthand, the ideal outcome of the revision process may be illustrated thusly, if the respective &quot;Question marks&quot; may be verified towards &quot;The affirmative&quot;.<br />
+<p>CVS GARNET -?source?-&gt; SVN GARNET</p>
+<p>SVN GARNET -source[master]-&gt; MCIGARNET</p>
+<p>CVS GARNET -?source?-&gt;  MMGARNET </p>
+<p>MMGARNET -merge[master]-&gt; MCIGARNET</p>
+<p>On a sidebar: This depth of revision tree management is much assisted with the comprehensive revision management support provided in Git.</p>
+<p>&nbsp;</p>
+<p>This article will address the <code>master</code> branch of the MCi Garnet source repository, as denoted.</p>
+    
+    
+    <h2>Towards Developing a Development Model for Garnet Development</h2>
+    
+    <p><em>Keywords: IDE Metamodel; "Meta-IDE" Model</em></p>
+    
+    <h3>Platform Requirements</h3>
+    
+    <h4>X Window System</h4>
+    
+    <h5>X on Microsoft Windows</h5>
+    
+    <div>Alternatives, one or more of each:</div>
+    <ul>
+    <li>X Window System Server (Xming, Cygwin, or other)</li>
+    <li>VirtualBox (X development either "directly in guest OS", as displayed directly with Virtualbox' virtual desktop presentaiton, or alternately using a formal "Desktop remoting" protocol -- e.g. X Window System clients running directly on "guest OS" and displayed with X windows server "directly on host OS". Note, however: Those X clients don't endure a laptop 'suspend', as the network interface appears to be 'reset' during the 'suspend'. Virtualbox, in either event, can save its own machine state, including of windows displayed within Virtualbox' virtual display environment.)</li>
+    </ul>
+    
+    <h4>ANSI Common Lisp</h4>
+    
+    <div>Alternatives: Numerous</div>
+    
+    <h3>Sidebar: Common Lisp Implementations Specifically Supported in Garnet (garnetlisp branch)</h3>
+    <ul>
+    <li>SBCL</li>
+    <li>CCL</li>
+    <li>CMUCL</li>
+    <li>ACL</li>
+    </ul>
+  </div><!-- .content -->
+  
+  <div id="bibliography">
+    <h2>Additional Bibliography</h2>
+    <table>
+      <tr class="biblioentry">
+        <td class="biblioid"><a name="bib.{BIBID}">{BIBID}</a></td>
+        <td class="biblioinfo">{AUTHORS}. <em>{TITLE}</em>. {EDITION}. {PUBLISHER} ({CITY}). {YEAR} </td>
+        <td class="bibliorefs"><strong>References</strong>
+          <ul>
+            <li><a href="#bibfef.{BIBID}.1">1</a></li>
+          </ul></td>
+      </tr>
+    </table>
+  </div><!-- .bibliography --> 
+
+</div><!-- .article -->
+
+<div class="footer">
+  <p>(C) 2014. {RIGHS_HOLDER}</p>
+</div><!-- .footer -->
+</body>
+</html>
