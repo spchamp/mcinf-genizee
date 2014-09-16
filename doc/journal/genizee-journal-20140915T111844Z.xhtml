@@ -11,13 +11,24 @@
     <h1 class="title">Towards A Set of Usage Examples for Garnet KR</h1>
     <div class="author">Sean Champ</div>
     <div class="pubdate">15 September, 2014</div>
-    <div class="revision">Revision 1.2</div>
+    <div class="revision">Revision 1.3</div>
   </div><!-- .metadata -->
+
+  <div class="toc">
+  	<h2>Table of Contents</h2>
+    <ul>
+    	<li><a href="#kr-ov">A Brief Overview of KR</a></li>
+    	<li><a href="#uex">Usage Examples</a></li>
+    	<li><a href="#devenv">Outline of a Desktop Development Environment</a></li>
+    	<li><a href="#tses">Procedure for a "Test Session," in Numbered Steps</a></li>
+    	<li><a href="#bibliography">Bibliography</a></li>
+    </ul>
+    </div>
 
   <div class="content">
     <p></p>
 
-    <h2>A Brief Overview of KR</h2>
+    <h2 id="kr-ov">A Brief Overview of KR</h2>
 
     <ul>
     <li>KR Formulas</li>
@@ -33,7 +44,7 @@
     <li>KR is a Component of the Garnet toolkit, and may be used as a stand-alone object system</li>
     </ul>
 
-<h2>Usage Examples</h2>
+<h2 id="uex">Usage Examples</h2>
     <h3>Applications in Geometry</h3>
     <ul>
       <li>Pythagorean Theorem (classic example)</li>
@@ -46,7 +57,7 @@
     <li>Calculation of Equivalent Resistance, Capacitance, or Inductance, in series and parallel circuits (six individual formulae, simple <em>sum</em> or <em>inverse of sum of inverses</em>)</li>
     </ul>
 
-    <h2>Outline of a Desktop Development Environment</h2>
+    <h2 id="devenv">Outline of a Desktop Development Environment</h2>
 
         <p>This outline proposes a model for <span class="productname">CLX</span> development on a <span class="productname">Microsoft Windows</span> platform. In the model described herein, <span class="productname">VirtualBox</span> is applied in developing a <em class="glossterm">virtualized</em> <span class="productname">Linux</span> operating system within a <span class="productname">VirtualBox</span> <em class="glossterm">Virtual Appliance</em>. That <em>Virtual Appliance</em> may be accessed directly via <span class="productname">VirtualBox</span>' desktop integration, or alternately, via an <span class="productname">SSH</span> tunnel over a <span class="productname">VirtualBox</span> networking interface. </p>
         <p>Using <span class="productname">SSH</span> tunneling, with the <span class="productname">Xming</span> <em class="glossterm">server</em> installed on a <span class="productname">Microsoft Windows</span> desktop &mdash; that, serving as the <span class="glossterm">host <abbr>OS</abbr></span> to the <span class="glossterm">virtual appliance</span>  &mdash; then any <span class="productname">X Window System</span> <span class="glossterm">client</span> applications installed on the <span class="glossterm">guest OS</span> may be accessed &mdash; as though <em>remotely</em> &mdash; via the <span class="productname">X Window System</span> <span class="glossterm">client-server protocols</span>, from within the <span class="productname">X Window System</span> <em class="glossterm">server</em>, on the <span class="glossterm">host <abbr>OS</abbr></span>. </p>
@@ -115,7 +126,7 @@
             </ul>
           </li>
     </ul>
-    <h2>Procedure for a &quot;Test Session,&quot; in Numbered Steps</h2>
+    <h2 id="tses">Procedure for a &quot;Test Session,&quot; in Numbered Steps</h2>
         <p>The goal of this test session shall be to ensure that the the items of "Stuff", as denoted in the previous, are successfully installed and configured.</p>
 
 
@@ -220,7 +231,7 @@
   </div><!-- .content -->
 
   <div id="bibliography">
-    <h2>Additional Bibliography</h2>
+    <h2>Bibliography</h2>
     <table>
 
       <tr class="biblioentry">

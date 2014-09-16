@@ -18,6 +18,31 @@
 	
 }
 
+.toc {
+	border-style: solid;
+	border-width: 1pt;
+	margin: 1.4em 0.3em 1.1em 0.2em;
+}
+
+.toc h2 {
+	margin: 0;
+	padding: 0.2em 0.4em 0.2em 0.5em;
+	font-style: oblique;
+	border-bottom-style: solid;
+	border-width: 1.5pt;
+	background-color: #B7B7B7;
+}
+
+.toc ul, .toc li {
+	margin: none;
+
+}
+
+.toc li {
+	padding: 0.1em 0.4em 0.1em 0.3em;
+	list-style-type: none;	
+}
+
 
 .article > .content {
 	
