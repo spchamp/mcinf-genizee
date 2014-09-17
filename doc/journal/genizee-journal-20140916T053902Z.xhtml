@@ -17,7 +17,7 @@
   </div><!-- .metadata -->
   
   <div class="content">
-  	<h2>Garnet &ndash; Multiple Forks, One Platform</h2>
+  	<h2>Garnet &ndash; Multiple Source Trees, One Platform</h2>
     
 <h3>Official Source Repostories of the Garnet Lisp Project</h3>
     
@@ -25,14 +25,14 @@
     
     <ul>
     	<li><abbr>SVN</abbr> Repository of Garnet Lisp Project (<a href="http://sourceforge.net/p/garnetlisp/svn/HEAD/tree/trunk/">Web View</a>)</li>
-        <li><abbr>CVS</abbr> Repository of Garnet Lisp Project (<a href="garnetlisp.cvs.sourceforge.net/viewvc/garnetlisp/">Web view</a>) (<a href="http://sourceforge.net/p/garnetlisp/code/">Info</a>)</li>      
+        <li><abbr>CVS</abbr> Repository of Garnet Lisp Project (<a href="http://garnetlisp.cvs.sourceforge.net/viewvc/garnetlisp/">Web view</a>) (<a href="http://sourceforge.net/p/garnetlisp/code/">Info</a>)</li>      
     </ul>
   
-  	<p>Briefly reviewing the revision logs of the respective repositires, it appears that the <abbr>SVN</abbr> repository is the most up-to-date of the two parallel source code repositories. </p>
+  	<p>Briefly reviewing the revision logs of the respective repositires, it appears that the <abbr>SVN</abbr> repository is the most up-to-date of the two parallel source code repositories, as published by the canonical <a href="http://sourceforge.net/p/garnetlisp/">Garnet Lisp project</a>. </p>
     
-    <h3>Creating {B} to {A}</h3>
+    <h3>Creating a <span class="productname">Git</span> Mirror from the Garnet Lisp <abbr class="productname">SVN</abbr> Repository</h3>
     
-  	<p>The Garnet Lisp Project <abbr>SVN</abbr> repository has been mirrored in the <a href="https://github.com/MetaCommunity/garnet">Garnet fork</a> published by the MetaCommunity.info (MCi) Project. That mirror was begun, specifically in the <a href="https://github.com/MetaCommunity/garnet/tree/garnetlisp"><code><em>garnetlisp</em></code> branch</a>  (<a href="https://github.com/MetaCommunity/garnet/commit/2a84f024e43f5e167e211d6881821e5b6baca853">revision mark</a>). That <em>branch</em> was created originally with the <span class="command">git svn</span> command, before being added to the <a href="https://github.com/MetaCommunity/garnet">Garnet Fork</a> published by the MCi Project.</p>
+  	<p>The Garnet Lisp Project <abbr>SVN</abbr> repository has been mirrored in the <a href="https://github.com/MetaCommunity/garnet">Garnet fork</a> published by the MetaCommunity.info (MCi) Project. That mirror was begun, specifically in the <a href="https://github.com/MetaCommunity/garnet/tree/garnetlisp"><code><em>garnetlisp</em></code> branch</a>  (at <a href="https://github.com/MetaCommunity/garnet/commit/2a84f024e43f5e167e211d6881821e5b6baca853">revision mark</a>). That <em>branch</em> was created originally with the <span class="command">git svn</span> command, before being added to the <a href="https://github.com/MetaCommunity/garnet">Garnet Fork</a> published by the MCi Project.</p>
 
 <blockquote class="snippet">
 <p class="annotation">The following <em class="glossterm">shell</em> <em class="glossterm">commands</em> create an individual <em class="glossterm">source tree</em>, in such a manner as that the <em class="glossterm">source tree</em> would reside, on the local filesystem, in parallel to any existing <em class="glossterm">source tree</em> on the local filesystem. As an advisory comment: It may be possible to use <code class="command">git svn</code> to append a <em class="glossterm">branch</em> immediately to an existing <code class="command">git</code> <em class="glossterm">source tree</em>. However, in order to ensure a clean <em>bare root</em> for the <code class="revbranch">garnetlisp</code> <em class="glossterm">branch</em> subsequently created in these <em class="glossterm">shell</em> <em class="glossterm">commands, </em> a seperate <em class="glossterm">source tree</em> is created, before being appended to the second <em class="glossterm">remote</em> <em class="glossterm">repository</em></p>
@@ -77,9 +77,33 @@
 </blockquote>
 
 <p>The <code class="revbranch">garnet<span>lisp</span></code> <em class="glossterm">branch</em> &mdash; as thusly created in the <abbr>MCi</abbr> <span class="productname">Garnet</span> <em class="glossterm">repository</em> &mdash; thus has a <em>"bare root"</em> in the <em class="glossterm">repository</em> &mdash; a <em class="glossterm">branch</em> beginning not from any existing <em class="glossterm">branch</em> in the <em class="glossterm">repository</em>. The same"Bare root" condition, perhaps, may be well addressed in subsequent endeavors. </p>
+
+<h3>Creating a <span class="productname">Git</span> Mirror from the Garnet Lisp <abbr class="productname">CVS</abbr> Repository</h3>
+
+<blockquote class="snippet">
+<pre><strong class="command">mkdir</strong> -p cvsgarnetlisp &amp;&amp; 
+    cd cvsgarnetlisp
+
+<strong class="command">git cvsimport</strong> \
+    -a -d :pserver:anonymous@garnetlisp.cvs.sourceforge.net:/cvsroot/garnetlisp \
+    garnet
+    
+## ... wait for the import to complete ...
+
+<strong class="command">git branch</strong> <em>cvsgarnetlisp</em> 
+<strong class="command">git checkout</strong> <em>cvsgarnetlisp</em>
+
+<strong>git remote</strong> add <em><strong>mcigarnet</strong></em> --tags -t <em>garnetlisp</em> \
+	<u>git@github.com:MetaCommunity/garnet.git</u>
+<strong>git push</strong> <em><strong>mcigarnet</strong></em> <em>cvsgarnetlisp</em></pre>
+</pre>
+    
+
+
+</blockquote>
+
 <blockquote>
-<p>...  as using <code class="command">git cvs</code> to create another local <em class="glossterm">source tree</em>, with a <em class="glossterm">branch</em> <code class="revbranch">cvs<span>garnet</span>lisp</code>. Similarly, <code class="command">git push</code> would be applied so as to add that new <em class="glossterm">source tree</em> &mdash; then under local <em class="glossterm">branch</em> <code class="revbranch">cvs<span>garnet</span>lisp</code> &mdash; to create a new <em class="glossterm">branch</em>, <code class="revbranch">cvs<span>garnet</span>lisp</code> under the <code class="revremote">mcigarnet</code> <em class="glossterm">remote</em>. Subsequently, any local <em class="glossterm">source tree</em> derived from <code class="revremote">mcigarnet</code> <em class="glossterm">remote</em> may be updated &mdash; as using <code class="command">git pull</code> &mdash;  so as to add the <code class="revbranch">cvs<span>garnet</span>lisp</code> <em class="glossterm">branch</em> under the <code class="revremote">mcigarnet</code> <em class="glossterm">remote</em> then into the other local <em class="glossterm">source tree</em>. </p>
-<p>Following a review of the <em class="glossterm">source code</em> then under the <code class="revbranch">cvs<span>garnet</span>lisp</code> <em class="glossterm">branch</em>&mdash; presuming that the <em class="glossterm">revision history </em>of that <em class="glossterm">branch</em> may serve to indicate whether that <em class="glossterm">branch</em> does or does not reprsent the <em>revision tree origin</em> of any of the other <em class="glossterm">branches </em> in the <em class="glossterm">repository</em> &mdash; then the <code><strong>git rebase</strong></code> command may be applied, so as to update the <em class="glossterm">revision tree </em>of any of the other <em class="glossterm">branch</em>es then existing in the <em class="glossterm">source repository</em> of the the <code class="revremote">mcigarnet</code> <em class="glossterm">remote</em>, insofar as to indicate where was the <em>revision tree origin</em> of each respective <em class="glossterm">branch</em>. Ideally, the entire <code class="revremote">mcigarnet</code> <em class="glossterm">remote</em> would contain a single, consistent revision tree, with no <em>&quot;bare root&quot;</em> conditions. </p>
+  <p>Following a review of the <em class="glossterm">source code</em> then under the <code class="revbranch">cvs<span>garnet</span>lisp</code> <em class="glossterm">branch</em>&mdash; presuming that the <em class="glossterm">revision history </em>of that <em class="glossterm">branch</em> may serve to indicate whether that <em class="glossterm">branch</em> does or does not reprsent the <em>revision tree origin</em> of any of the other <em class="glossterm">branches </em> in the <em class="glossterm">repository</em> &mdash; then the <code><strong>git rebase</strong></code> command may be applied, so as to update the <em class="glossterm">revision tree </em>of any of the other <em class="glossterm">branch</em>es then existing in the <em class="glossterm">source repository</em> of the the <code class="revremote">mcigarnet</code> <em class="glossterm">remote</em>, insofar as to indicate where was the <em>revision tree origin</em> of each respective <em class="glossterm">branch</em>. Ideally, the entire <code class="revremote">mcigarnet</code> <em class="glossterm">remote</em> would contain a single, consistent revision tree, with no <em>&quot;bare root&quot;</em> conditions. </p>
 </blockquote>
 <!-- 
 <ul>
@@ -89,34 +113,21 @@
 </ul>
 -->
 
-<h3>Having Created {D} to {C}</h3>
+<h3>Original Source Root of the MetaCommunity Garnet Repository</h3>
 
-<p>The <em><a href="https://github.com/MetaCommunity/garnet/tree/master"><code>master</code></a></em><a href="https://github.com/MetaCommunity/garnet/tree/master"> branch</a> of the MetaCommunity.info Garnet fork (at <a href="https://github.com/MetaCommunity/garnet/commit/1652af38f76b1c4efb19bc31cfbae9197817a786">revision mark</a>) was derived   originally from the Garnet created by Mariano Montone. The MetaCommunity.info Garnet fork was created using the web-based resource management interface at Github. An essential result was as to <em class="glossterm">fork</em> <code><a href="https://github.com/mmontone/garnet">mmontone/garnet</a></code>, thus creating a repository <code><a href="https://github.com/MetaCommunity/garnet">MetaCommunity/garnet</a></code> with its  <a href="https://github.com/MetaCommunity/garnet/tree/master"><code class="revbranch">master</code>  branch</a> derived directy from the corresponding <a href="https://github.com/mmontone/garnet/tree/master"><code class="revbranch">master</code> branch</a> of the <code><a href="https://github.com/mmontone/garnet">mmontone/garnet</a></code> repostiory. </p>
-<p>Reviewing the revision logs of the branch created from the <code><a href="https://github.com/mmontone/garnet">mmontone/garnet</a></code> repository, it appears that that source tree <em>was not</em> originally derived from the official Garnet <abbr>SVN</abbr> source tree. It may have been derived from the official <abbr>CVS</abbr> source tree, instead? Presumably, the Garnet <abbr>SVN</abbr> source tree, itself, also may have been derived from the official <abbr>CVS</abbr> source tree.</p>
-<p>Between the 'trunk' source tree of the official Garnet <abbr>SVN</abbr> repository and the 'master' source tree of the <code><a href="https://github.com/mmontone/garnet">mmontone/garnet</a></code> repository, it would seem that the two respective upstream soucd trees have undergone, largely, a seperate evolution since after the time Garnet was originally published.</p>
-<p>A brief, albeit superficial review was performed, to determine a small sample of the differences between the two respective <em>upstream repositories</em>, in revisions at and proceeding towards each respective <em>revision mark</em> &mdash; namely, of those reposotireis that were a <em class="glossterm">revision tree source</em> of, respectively, the <code class="revbranch">garnetlisp</code> <em class="glossterm">branch</em> and the <code class="revbranch">mmgarnet</code> <em class="glossterm">branch</em>, with their revision histories being retained in each endeavor &mdash; it had seemed that a full <em>merge</em> between the two respective <em>upstream source trees</em> would require a substantial amount of manual merging, to complete the merge successfully. Moreover, it was observed that the original <code class="revbranch">garnetlisp</code> <em class="glossterm">branch</em>  had been more recently updated, asto include some specific support for Clozure Common Lisp (CCL), a Common Lisp implementaion certainly much favorable for its support for the ARM microprocessor architecture, as well as CCL's integration native C libraries  &mdash; such that may be observed as towards some paritucular focus, with a brief sidebar about the Linux Kernel  &mdash; such as that the Linux kernel architecture, consistently, is written in the C programming language, and the Linux kernel implements support for a realtime, deterministic timing model, such as would be required in applications of a realtime operating system (RTOS), in any hobbyist, industrial, academic, or consumer applications.</p>
-<p>Subsequently, on one Granite PC the <em><a href="https://github.com/MetaCommunity/garnet/tree/master"><code>master</code></a></em><a href="https://github.com/MetaCommunity/garnet/tree/master"> branch</a> &mdash; in the local copy of the MCi Garnet source tree &mdash; the branch was renamed to <code class="revbranch">mmgarnet</code>, and a new <code class="revbranch">master</code>branch was created &mdash; such that that branch would derive, instead, from the <code class="revbranch">garnetlisp</code> <em class="glossterm">branch</em>.</p>
-
+<p>The <a href="https://github.com/MetaCommunity/garnet/tree/mmgarnet"><code class="revbranch">mmgarnet</code> branch</a> of the MetaCommunity Garnet fork (at <a href="https://github.com/MetaCommunity/garnet/commit/1652af38f76b1c4efb19bc31cfbae9197817a786">revision mark</a>) was derived   originally from the Garnet source code <em>fork</em> created by Mariano Montone. </p>
+<p>The <a href="https://github.com/MetaCommunity/garnet/tree/mmgarnet"><code class="revbranch">mmgarnet</code> branch</a> was previously the <a href="https://github.com/mmontone/garnet/tree/master"><code class="revbranch">master</code> branch</a> of the MetaCommunity Garnet repository. The latter repository was created, originally, using the web-based resource management interface at Github. Thus,  the <code><a href="https://github.com/mmontone/garnet">mmontone/garnet</a></code> source repository was <em>forked, </em>creating a repository, <code><a href="https://github.com/MetaCommunity/garnet">MetaCommunity/garnet</a></code> with its  <a href="https://github.com/MetaCommunity/garnet/tree/master"><code class="revbranch">master</code>  branch</a> then derived originally from the corresponding <a href="https://github.com/mmontone/garnet/tree/master"><code class="revbranch">master</code> branch</a> of the <code><a href="https://github.com/mmontone/garnet">mmontone/garnet</a></code> repository. Subsequently, the <em><a href="https://github.com/MetaCommunity/garnet/tree/master"><code>master</code></a></em><a href="https://github.com/MetaCommunity/garnet/tree/master"> branch</a> created from the initial <em>fork</em> was renamed to <code class="revbranch">mmgarnet</code>, and a new <code class="revbranch">master</code> branch was created, that deriving from the <code class="revbranch">garnetlisp</code> <em class="glossterm">branch</em>.</p>
+<p>Towards developing a single revision history for Garnet, a brief, superficial review was performed of the respective soruce trees, so as to determine a small sample of differences between the two respective <em>upstream repositories</em>, in revisions at and proceeding towards each respective <em>revision mark. </em> The <a href="http://git-cola.github.io/screenshots.html">git-cola</a></span> application was substantially helpful, in making this review. Between the 'trunk' source tree of the official Garnet <abbr>SVN</abbr> repository and the 'master' source tree of the <code><a href="https://github.com/mmontone/garnet">mmontone/garnet</a></code> repository, it would seem that the two respective upstream source trees have undergone, largely, a seperate evolution</p>
 <h3>A Repository Model in Four Branches Integrating Three Upstream Repositories</h3>
-
 <p>After the further work for integration of the official Garnet CVS repository, this creates four distinct branches:</p>
 <ul>
-  <li><code class="revbranch">mmgarnet</code> <em class="glossterm">branch, </em>with revision tree source: <code><a href="https://github.com/mmontone/garnet">mmontone/garnet</a></code></li>
   <li><code class="revbranch">garnetlisp</code> <em class="glossterm">branch</em>, <em class="glossterm"></em>with revision tree source: The official Garnet Lisp project's own <a href="http://sourceforge.net/p/garnetlisp/svn/HEAD/tree/trunk/"><abbr>SVN</abbr> repository</a></li>
   <li><code class="revbranch">cvsgarnetlisp</code> <em class="glossterm">branch</em>, <em class="glossterm"></em>with revision tree source: The official Garnet Lisp project's own <abbrev>CVS</abbrev> repository  (<a href="garnetlisp.cvs.sourceforge.net/viewvc/garnetlisp/">Web view</a>) (<a href="http://sourceforge.net/p/garnetlisp/code/">Info</a>)</li>
+  <li><code class="revbranch">mmgarnet</code> <em class="glossterm">branch, </em>with revision tree source: <code><a href="https://github.com/mmontone/garnet">mmontone/garnet</a></code>, mirroring the <code class="revbranch">cvsgarnetlisp</code> <em class="glossterm">branch</em></li>
   <li><code class="revbranch">master</code> <em class="glossterm">branch</em>, derived originally from <code class="revbranch">garnetlisp</code></li>
 </ul>
-In a textual shorthand, the ideal outcome of the revision process may be illustrated thusly, if the respective &quot;Question marks&quot; may be verified towards &quot;The affirmative&quot;.<br />
-<p>CVS GARNET -?source?-&gt; SVN GARNET</p>
-<p>SVN GARNET -source[master]-&gt; MCIGARNET</p>
-<p>CVS GARNET -?source?-&gt;  MMGARNET </p>
-<p>MMGARNET -merge[master]-&gt; MCIGARNET</p>
-<p>On a sidebar: This depth of revision tree management is much assisted with the comprehensive revision management support provided in Git.</p>
-<p>&nbsp;</p>
-<p>This article will address the <code>master</code> branch of the MCi Garnet source repository, as denoted.</p>
-    
-    
-    <h2>Towards Developing a Development Model for Garnet Development</h2>
+This article will address the <code>master</code> branch of the MCi Garnet source repository, as denoted.
+<h2>Towards Developing a Development Model for Garnet Development</h2>
     
     <p><em>Keywords: IDE Metamodel; "Meta-IDE" Model</em></p>
     
@@ -128,8 +139,26 @@ In a textual shorthand, the ideal outcome of the revision process may be illustr
     
     <div>Alternatives, one or more of each:</div>
     <ul>
-    <li>X Window System Server (Xming, Cygwin, or other)</li>
-    <li>VirtualBox (X development either "directly in guest OS", as displayed directly with Virtualbox' virtual desktop presentaiton, or alternately using a formal "Desktop remoting" protocol -- e.g. X Window System clients running directly on "guest OS" and displayed with X windows server "directly on host OS". Note, however: Those X clients don't endure a laptop 'suspend', as the network interface appears to be 'reset' during the 'suspend'. Virtualbox, in either event, can save its own machine state, including of windows displayed within Virtualbox' virtual display environment.)</li>
+    <li>X Window System Server and X Windows clients running on same PC
+      <ul>
+        <li> X Windows Servers for Microsoft Windows platforms: Xming, Cygwin, other</li>
+      </ul>
+    </li>
+    <li>VirtualBox 
+      <ul>
+        <li>Role: Platform for Development with CLX
+          <ul>
+            <li>Interaction via Virtualbox' virtual desktop layer</li>
+            <li>Interaction via RDP</li>
+            <li> Interaction via a formal <em>Desktop remoting</em> protocol 
+              <ul>
+                <li> X Window System, with clients running directly on "guest OS" displayed with X windows server "directly on host OS". </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
     </ul>
     
     <h4>ANSI Common Lisp</h4>
@@ -143,6 +172,396 @@ In a textual shorthand, the ideal outcome of the revision process may be illustr
     <li>CMUCL</li>
     <li>ACL</li>
     </ul>
+    <p>Note: mmgarnet branch does not explicitly support CCL, does explicitly support GNU CLISP</p>
+<h4>Additional Libraries</h4>
+<h5>CLX</h5>
+    
+    <p>Availability of CLX:</p>
+    <ul>
+    <li>Portable CLX (originally developed by: TBD)</li>
+    <li>"Third-party forks"</li>
+    <li>CLX edtions provided with individual Common Lisp distributions</li>
+    </ul>
+    
+    <h6>Note: CLX and Stand-Alone Lisp Images</h6>
+    
+    <p>(Concerns TBD. google: clx save-lisp)    </p>
+    <h5>Truetype Dependencies</h5>
+    
+    <p>items loaded (via REQUIRE, therefore "possibly" via ASDF with a functionally configured source registry) when LOAD-TRUETYPE-P</p>
+    
+<blockquote class="ednote endnote">
+<h3>FIXME: Build fails without Truetype</h3>
+<p>When:</p>
+<pre>(defvar compile-truetype-p nil)
+(defvar load-truetype-p nil)</pre>
+<p>Then: ...build fails.</p>
+<p>Suggested resolutions:</p>
+	<ul>
+    	<li>Convert system definitions to use ASDF</li>
+        <li><u>Determine how to implement a <em>user option</em> around ASDF</u>, as for whether the CL Native Truetype support will be used when the respective systems are compiled and/or loaded (default: T)
+   	    <ul>
+            <li>If implemented <u>as a <em>user option</em>,</u> it may or <em>(recommended) may not</em> be implemented simultaneously with an element for <code>CL:*FEATURES*</code>, but <em>should</em> support a compile-time specification nonetheless</li>
+            <li><strong><u>functional syntax</u> for <u>"user option eval"</u>, using existing <em>reader macros</em> <code><u>#+</u></code> and <code><u>#-</u></code></strong></li>
+            <li><strong>recording of "user options" active when <u>A.system</u> was compiled to <u>A.{BUILD_ID}.fasl-files</u>, using <u>A.{BUILD_ID}.manifest file</u>; bundling of <u>A.{BUILD_ID}.fasl-files</u> and <u>A.{BUILD_ID}.manifest</u> file for distribution (within in or in addition to) <u>a stand-alone "Lisp application bundle"</u></strong> for <strong><u>A.{BUILD_ID}</u></strong></li>
+            <li><strong>Integration with ASDF: <code><u>CONFIGURABLE-COMPONENT</u></code></strong> and related <em>subclass layer</em> onto conventional ASDF component classes (?)</li>
+            <li>BUILD_ID would identify a &quot;BUILD&quot; comprised of qualities:
+              <ul>
+                <li>Lisp implementation type
+                  <ul>
+                    <li>Version</li>
+                    <li>Lisp core image identity</li>
+                    <li>Source URI (deb, custom build, etc)</li>
+                  </ul>
+                </li>
+                <li>Systems loaded at time of build
+                  <ul>
+                    <li>System name</li>
+                    <li>Version</li>
+                    <li>Source URI (deb, custom build, etc)</li>
+                  </ul>
+                </li>
+                <li>Features in Lisp at time of build (???)</li>
+              </ul>
+            </li>
+            <li>Additional items to accumulate with each &quot;BUILD&quot; :
+              <ul>
+                <li>Logs of individual streams (error and outuput, synchroinized) indexed the compilation environment of each system definition and each contained component -- for review by developers (needs IDE support)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        
+    </ul>
+</blockquote>    
+    <ul>
+    <li>ZBP-TTF
+        <ul>
+    <li>Availability:<ul>
+      <li><a href="http://www.xach.com/lisp/zpb-ttf/">info</a></li>
+      <li><a href="https://github.com/xach/zpb-ttf">at github</a></li>
+      </ul>
+    </li>
+    </ul>
+    </li>
+    <li>CL-Vectors
+      <ul>
+        <li>Availability
+          <ul>
+            <li><a href="http://projects.tuxee.net/cl-vectors/">info</a></li>
+            <li><a href="https://github.com/fjolliton/cl-vectors">at github</a></li>
+            </ul>
+          </li>
+        <li>Same source code repository also provides:
+          <ul>
+            <li>CL-Paths-TTF</li>
+            <li>CL-AA</li>
+            </ul>
+        </li>
+        </ul>
+    </li>
+    <li>CL-FAD
+      <ul>
+        <li><em>Portable pathname library for Common Lisp</em></li>
+        <li>Availability
+          <ul>
+            <li><a href="http://weitz.de/cl-fad/">info</a></li>
+            <li><a href="https://github.com/edicl/cl-fad">at github</a></li>
+          </ul>
+        </li>
+        </ul>
+    </li>
+    <li>CL-Store
+      <ul>
+        <li>Keywords: Serialization</li>
+        <li>Availability
+          <ul>
+            <li><a href="http://common-lisp.net/project/cl-store/">info</a></li>
+            <li><a href="https://github.com/skypher/cl-store">at github</a>.</li>
+          </ul>
+        </li>
+        </ul>
+    </li>
+    <li>Trivial-Features
+      <ul>
+        <li>Availability
+          <ul>
+            <li><a href="http://www.cliki.net/trivial-features">info (Unoff. homepage at CLiki)</a></li>
+            <li><a href="https://github.com/trivial-features/trivial-features">at github</a></li>
+          </ul>
+        </li>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    <h2>Building Garnet</h2>
+    
+    <p>As it's said of PERL, <em>"<abbr>TMTOWDI</abbr>"</em></p>
+    
+    <p>NOTE: Affects of <code>{PACKAGE??}::Garnet-Garnet-Debug</code> variable during compile time (TBD) (see also: Original build.lisp)
+    </p>
+    <p>Convenient Alternatives</p>
+    <ul>
+   	  <li>garnetlisp branch: <code>build-garnet</code>
+        <ul>
+        	<li>Compiles and loads Garnet,  then (...) exits. Optionally, then loads Garnet again and generates a Lisp image, using opal:make-image
+        	  <ul>
+        	    <li>TO DO: Check &quot;Existing work&quot; and define a system for managing system builds with ASDF
+        	      <ul>
+        	        <li>Systems to load</li>
+        	        <li>...</li>
+        	        <li>Pre-exit functions</li>
+        	        <li>... </li>
+        	        <li>Managing lisp images (registration w/i a lisp manager thing, etc) (integration of a lisp manager w/ IDE.) (xref to common-lisp-manager, historic) (which GUI to use in IDE?)</li>
+      	          </ul>
+        	    </li>
+       	      </ul>
+        	</li>
+       	  <li>(Current verison) "Batch command line" Supported exclusively for Lisp implementations SBCL, CMUCL, CCL, ACL</li>
+       	  <li>build-garnet loads files:
+       	    <ul>
+       	      <li>original <em>garnet-prepare-compile.lisp</em>
+(all in package cl-user)
+  <ul>
+       	          <li>which defines (defvar) various compile-foo-p variables, and</li>
+       	          <li>defines (defvar) various load-&lt;foo&gt;-p variables, and</li>
+       	          <li>defines (defparameter) various load-&lt;foo&gt;-p-copy parameters
+       	            <ul>
+       	              <li>used in garnet-compiler.lisp for a sort of pre-check to ensure garnet-prepare-compile is loaded before garnet-compiler</li>
+   	                </ul>
+       	          </li>
+       	          <li>defines (defvar) launch-process-p as NIL, lastly</li>
+       	          <li>defines (defvar) *Garnet-Going-To-Compile* as T</li>
+   	            </ul>
+       	      </li>
+       	      <li>original <em>garnet-loader.lisp</em>, which...
+       	        <ul>
+       	          <li>defines a number of *feature* features (TO DO: Carry all of these over into the ASDF loader)
+       	            <ul>
+       	              <li>:GARNET</li>
+       	              <li>:GARNET-V3</li>
+       	              <li>:GARNET-V3.3</li>
+       	              <li>and if multiprocessing is known to be available, :GARNET-PROCESSES</li>
+       	              <li>and if Garnet-Garnet-Debug =&gt; T, adds :garnet-debug to *features* </li>
+       	            </ul>
+       	          </li>
+       	          <li>is also where most of Garnet's DEFPACKAGE forms are initially evaluated
+       	            <ul>
+       	              <li>TO DO: Move the defpackage forms into nww files their respective source directories, namely towards building with ASDF</li>
+   	                </ul>
+       	          </li>
+       	          <li> if *garnet-compile-debug-mode* =&gt; T =&gt; &quot;more debuggable&quot; Garnet
+       	            <ul>
+       	              <li>Affects Garnet's setting of compiler optimizations during compile time</li>
+       	              <li>TO DO: Grep the source code for that variable, also document its uses, etc</li></ul></li>
+       	          <li> *garnet-compile-debug-settings*. NOTE</li>
+       	          <li>*garnet-compile-production-settings*. NOTE</li>
+       	          <li>*default-garnet-proclaim*
+       	            <ul>
+       	              <li>Inherits one of the previous two -settings* values, depending on the value of *garnet-compile-debug-mode*</li>
+       	              <li>used in 'prolaim' call within <em>garnet-loader.lisp</em></li>
+   	                </ul>
+       	          </li>
+       	          <li>ensures that CLX will be loaded (*load-clx-p*)</li>
+       	          <li>... libraries set to be loaded (DEFVAR LOAD-&lt;FOO&gt;-P redundantly) <strong><em>unless</em></strong> *Garnet-Going-To-Compile*</li>
+       	          <li>... launch-process-p ...</li>
+       	          <li>... update-locking-p ...</li>
+       	          <li><strong>FIXME: DOCUMENT AND INDEX ALL &quot;PROPERTY VARIBLES&quot; USED BY GARNET, AS AFFECTING COMPILATION AND/OR LOADING, FOR THOSE VARIABLS DEFINED IN THIS BUILD FILE</strong></li>
+       	          <li>multipile-garnet-bin-dirs</li>
+       	          <li>your-garnet-pathname</li>
+       	          <li>many variables for pathnames
+       	            <ul>
+       	              <li>FIXME: USE LOGICAL PATHNAMES INSTEAD, WITHING GARNET</li>
+   	                </ul>
+       	          </li>
+       	          <li><strong>LOADER-FILES + VARIABLES (FIXME: REDO EACH FOR ASDF)</strong> </li>
+       	          <li>Garnet-Load-Alist</li>
+       	          <li>when load-clx-p, on SBCL also loads SB-POSIX</li>
+       	          <li>FIXME: MOVE INTO NEW GARNET-SHARED SYSTEM, IF USED ELSEWHERE IN GARNET:
+       	            <ul>
+       	              <li><del>DEFUN GET-FULL-DISPLAY-NAME</del>
+       	                <ul>
+       	                  <li>Used only in <em>VERIFY-DISPLAY-CAN-BE-OPENED</em></li>
+       	                  <li>Redefined in src/gem/x.lisp</li>
+   	                    </ul>
+       	              </li>
+       	              <li><del>DEFUN GET-DISPLAY-NUMBER</del>
+       	                <ul>
+       	                  <li>Used only in <em>VERIFY-DISPLAY-CAN-BE-OPENED</em></li>
+       	                  <li>Redefined in src/gem/x.lisp</li>
+   	                    </ul>
+       	              </li>
+       	              <li><del>DEFUN <em>VERIFY-DISPLAY-CAN-BE-OPENED</em></del>
+       	                <ul>
+       	                  <li><strong>Used oinly in garnet-loader.lisp</strong></li>
+       	                  <li>For ASDF integration: May be moved into the 'gem' system, performed in an 'after' method on the same</li>
+   	                    </ul>
+       	              </li>
+       	              <li><del>DEFUN GARNET-SHELL-EXEC</del>
+       	                <ul>
+       	                  <li>only used by <del>GARNET-COPY-FILES</del></li>
+   	                    </ul>
+       	              </li>
+       	              <li><del>GARNET-COPY-FILES</del>
+       	                <ul>
+       	                  <li>USES SHELL 'cp'</li>
+       	                  <li>Used only in &lt;foo&gt;/&lt;foo&gt;-compiler.lisp</li>
+   	                    </ul>
+       	              </li>
+       	              <li>ALSO (?)
+       	                <ul>
+       	                  <li><del>DEFUN GARNET-MKDIR-IF-NEEDED</del>
+       	                    <ul>
+       	                      <li>Used only in &lt;foo&gt;/&lt;foo&gt;-compiler.lisp</li>
+   	                        </ul>
+       	                  </li>
+       	                  <li><strong>DEFVAR *COMPILER-EXTENSION*</strong>
+       	                    <ul>
+       	                      <li>Unused outside of garnet-loader.lisp</li>
+       	                      <li><strong>Mentioned in the Garnet manual</strong></li>
+   	                        </ul>
+       	                  </li>
+       	                  <li><strong>DEFUN GARNET-LOAD</strong>
+       	                    <ul>
+       	                      <li><strong>Mentioned in the Garnet manual</strong></li>
+       	                      <li>Used elsewhere in codebase</li>
+       	                      <li>Used with logical pathnames (or in CMUCL: search paths)</li>
+       	                      <li><strong>Serves as a simplefocus for further integration of Garnet with ASDF</strong>
+       	                        <ul>
+       	                          <li><strong>src/sample-prog/demo-editor.lisp</strong></li>
+       	                          <li><strong>various under src/gadgets/garnet-code/</strong></li>
+       	                          <li><strong>various under src/opal/garnet-code/</strong></li>
+   	                            </ul>
+       	                      </li>
+   	                        </ul>
+       	                  </li>
+       	                  <li>DEFUN GARNET-COMPILE
+       	                    <ul>
+       	                      <li><strong>Mentioned in the Garnet manual</strong></li>
+       	                      <li>Used only within &lt;foo&gt;/&lt;foo&gt;-compiler.lisp</li>
+   	                        </ul>
+       	                  </li>
+       	                  <li>DEFUN ADD-GARNET-LOAD-PREFIX
+       	                    <ul>
+       	                      <li><strong>Mentioned in the Garnet manual</strong></li>
+       	                      <li>Used only in garnet-loader.lisp</li>
+       	                      <li>Note: Uses of garnet load prefix???</li>
+   	                        </ul>
+       	                  </li>
+   	                    </ul>
+       	              </li>
+   	                </ul>
+       	          </li>
+       	          <li><strong><u>*kr-only*</u></strong></li>
+       	          <li>and then it loads individual &lt;foo&gt;-loader files, depending on values of individual load-&lt;foo&gt;-p variables
+       	            <ul>
+       	              <li>NOTE: :GARNET-MODULES symbol accessed for its symbol plist, to determine if a garnet module is loaded (alternate approach to using *features*? Redundant if using ASDF. FIXME so remove it in the ASDF build)</li>
+   	                </ul>
+       	          </li>
+   	            </ul>
+       	      </li>
+       	      <li>original <em>garnet-compiler.lisp</em>
+       	        <ul>
+       	          <li>which does a simple pre-check on the &lt;copy&gt; variables, then loads the individual compiler script for each beloved system
+       	            <ul>
+       	              <li>FIXME: Each of those compiler scripts must be amended for the ASDF loading process.</li>
+   	                </ul>
+       	          </li>
+   	            </ul>
+       	      </li>
+   	        </ul>
+       	  </li>
+   	    </ul>
+      </li>
+      <li>mmgarnet branch: using GNU Make, with command
+        <ul>
+          <li>'make' command varies according to the Lisp being used for the build</li>
+          <li>Makefile uses original 'build.lisp'
+            <ul>
+              <li>'build.lisp' does not save a Lisp image
+                <ul>
+                  <li>does compile, load.</li>
+                </ul>
+              </li>
+              <li>Note: 'build.lisp' is available in original garnetlisp branch, though it is not used by the build-lisp script</li>
+              <li>see source code. .... run source code, run! ...          </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul>
+      <li><em><strong>TO DO: Using ASDF</strong></em>
+        <ul>
+          <li>{kindly add boilerplate explaining motivations to going through all of the gregariously tedious mucketymuck for this}
+            <ul>
+              <li>Mitigates application of variables for specifying compile-time/load-time behaviors in Garnet</li>
+              <li>Allws for easier integration with development tools using ASDF</li>
+              <li>ASDF's object-oriented system definition model allows for <em>extensibility</em> with regards to existing system definitions
+                <ul>
+                  <li>&quot;New ways&quot; to publish accessible documentation (TBD)</li>
+                  <li>Integration with functional testing frameworks (TBD)</li>
+                  <li>Other ways to add layers of &quot;High-Pro Glow&quot; to the resources
+                    <ul>
+                      <li>ASDF for sending system definitons to Mars ... and back.</li>
+                      <li>...</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>{list the beloved systems then defined for loading with ASDF}</li>
+          <li>{note the historic timeline of each of Mk:Defsystem and ASDF)</li>
+        </ul>
+      </li>
+    </ul>
+    <p>&nbsp;</p>
+    <p>(see also: {insert-remote-url}/readme-build-garnet.txt) </p>
+    
+    <blockquote class="ednote endnote">
+    <h3>Concerns Encountered during Build</h3>
+    <ul>
+    <li>Various (denoted in previous) (low priority)</li>
+    <li><em><strong>Very, very many (ad infinitum) (program is probably stuck in a loop) </strong></em>instances of the following warning appear on the terminal, when compiling ... or was it while later loading? ... Garnet, during 'build'
+      <ul>
+        <li>"WARNING: Font '*-*-courier-medium-r-*-*-*-120-*-*-*-*-iso8859-1' not on font path! // ****   Resorting to Default Font!"</li>
+      </ul>
+    </li>
+    </ul>
+    </blockquote>
+    
+    <h2>Documenting Garnet</h2>
+    <ul>
+    	<li>Existing manuals (TeX, Postscript) (FIXME: Convert to PDF and publish)</li>
+        <li>Further documentation (e.g. variables affecting compile) for QUICK REFERENCE. for EASY START UP AND BUILD/DEVELOP</li>
+    </ul>
+<h2>Evaluating Garnet for Application in Contemporary GUI Applications</h2>
+<p><em>???</em></p>
+<p>P.S. What means &quot;Contemporary&quot;, in any formal model of human computer interfaces? HTML + AJAX???</p>
+<h2>"Looking Ahead" &mdash; Across The moment of, "No, this is not going to be a nice time after all"</h2>
+    
+<ul>
+    	<li>Appliations of KR</li>
+  <li><strong><u>Developing a   <code>PROTOTYPE</code> model in CLOS, referencing KR</u></strong>
+    <ul>
+  <li>Protocol:
+          <ul>
+            <li>Class: <code>PROTOTYPE</code></li>
+            <li>Class: <code>PROTOTYPE-SLOT-DEFINITION</code></li>
+            <li>Protocol behavior: <code>MAKE-INSTANCE (FOO PROTOTYPE-CLASS)</code> to call <code>ENSURE-CLASS FOO</code> and return the resulting <code>PROTOTYPE</code></li>
+            <li>Concept (Extensional/Rhetorical) : <em>Collapsing the CLOS class/instance model into a single prototype model</em></li>
+            <li>Relatd protocol: CLOS model for KR formulas (TBD)</li>
+      </ul></li>
+          <li>KR in CLOS + Garnet?  (<em>Usage case</em> for  <code>PROTOTYPE</code> model in CLOS)</li>
+</ul>
+        </li>
+        <li>Thread safety and KR formulas</li>
+        <li>&quot;How to make it run more efficiently&quot; </li>
+        <li>Applicability on thin/mobile client architectures?</li>
+  </ul>
+
   </div><!-- .content -->
   
   <div id="bibliography">
@@ -157,7 +576,7 @@ In a textual shorthand, the ideal outcome of the revision process may be illustr
           </ul></td>
       </tr>
     </table>
-  </div><!-- .bibliography --> 
+</div><!-- .bibliography --> 
 
 </div><!-- .article -->
 
