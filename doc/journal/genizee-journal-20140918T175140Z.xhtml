@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KR4Math, A Study of a Mathematical Application of the Granite Lisp KR System // Genizee Project Journal</title>
+<link href="article.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div class="article">
+
+  <div class="metadata">
+    <h1 class="title">KR4Math, A Study of a Mathematical Application of the Granite Lisp KR System</h1>
+    <div class="author">Sean Champ</div>
+    <div class="pubdate">18 September, 2014</div>
+    <div class="revision">Revision 1.0</div>
+  </div><!-- .metadata -->
+  
+  <div class="content">
+
+  	<blockquote class="sidebar">
+   	  <p>This article extends on the article, <em><a href="genizee-journal-20140915T111844Z.xhtml">Towards a Set of Usage Examples for Garnet KR</a></em>
+        </p>
+    </blockquote>
+  
+  	<p>The Genizee Project ...</p>
+    
+    <p>... rennovating Garnet ...</p>
+  
+  
+    <p>KR</p>
+    <p>...</p>
+    <ul>
+    <li>...</li>
+    <li><em>Callbacks</em> within graphical desktop layouts, as within Garnet</li>
+    <li>...</li>
+	<li>Distribution of changes to symbolic variables representing mathematical quantities, wihtin mathematial formulae</li>
+	<li>...</li>
+    </ul>
+    
+    <h2>A Simple Example onto the Pythagorean Theorem</h2>
+<blockquote class="snippet">
+<pre>(in-package #:cl-user)
+
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defpackage #:ptheorem
+    (:use #:kr #:cl)))
+
+(in-package #:ptheorem)
+
+;; Utility functions
+
+(defun geom-sum (a b)
+  (sqrt (+ (expt a 2)
+           (expt b 2))))
+
+(defun geom-diff (a c)
+  (sqrt (- (expt c 2)
+           (expt a 2))))
+
+;; Interface onto KR
+
+(create-instance 'triangle nil
+   (:a 3)
+   (:b 4)
+   (:c 5))
+
+(create-instance 'right-triangle triangle
+ (:docstring "c^2 = a^2 + b^2")
+
+ (:a (o-formula (geom-diff (gvl :b) (gvl :c))
+                3))
+ (:b (o-formula (geom-diff (gvl :a) (gvl :c))
+                4))
+ (:c (o-formula (geom-sum (gvl :a) (gvl :b))
+                5)))
+
+<strong>;; should call G-VALUE first, on the slot :A,
+</strong>;; before S-VALUE on slot :A, given that
+;; :A has a slot value derived from a formula.
+
+<strong>(g-value right-triangle :a)
+</strong>;; => 3.0
+;; ^ the value is not derived from the slot's initform
+
+;; set a new value to slot :A
+<strong>(s-value right-triangle :a 4)
+</strong>;; => 4, nil
+
+;; double check that the  new value is reflected in :A
+(g-value right-triangle :a)
+;; => 4
+
+<strong>;; check the values of slot :B, :C now</strong>
+
+<strong>(g-value right-triangle :b)
+;; => 3.9999998
+</strong>
+<strong>(g-value right-triangle :c)<br />;; =&gt; 5.656854<br />;; ^ &quot;<u>Peculiar</u>&quot;
+</strong>
+;; To do: Study <em>Floating point accuracy</em> + utilities in CLtL2
+
+;; To Do: Also model interior angles in RIGHT-TRIANGLE
+;;        using the standard trigonometric formulae
+</pre>
+</blockquote>
+	
+    <h2>Notes Towards the KR API </h2>
+    
+    <p>... KR <em>schema</em> ... kr:create-instance ... </p>
+    <p>... a syntax similar to that of CLtL2 <em>structure classes</em> &mdash; e.g for schema slot type specification with <code>:declare</code> as a <em>&quot;header&quot; keyword</em> in a schema definition</p>
+<p>... schema slots ... slot value type checking in KR ... kr:def-kr-type ... <em><strong><u>Question</u>: Given a types A defined with def-kr-type, how would the type definition of A be related to broader CLtL2 type system? Note that This may be relevant with regards to compiler optimizations. Simpler question: Does def-kr-type behave like deftype?</strong></em></p>
+    <p>... KR <em>methods</em> ... kr:define-method ... &quot;messages&quot; in KR (???) ... kr:kr-send ... ... kr:call-prototype-method / kr:apply-prototype-method ... <em>debugging</em> with kr:method-trace ...</p>
+<p>... kr:s-value, kr:g-value ...</p>
+    
+    
+    <h3>KR Formulas</h3>
+    
+    <p>... kr:o-formula ... kr:gv and the convenience form, kr:gvl ...</p>
+    <h3>Utility - Reader Macros </h3>
+    <p>i.e. #k&lt;...&gt; and #f(...)</p>
+    <h2>Towards a CLOS ...</h2>
+    
+    <p><strong><em>theoretical sidebar</em>:</strong> CLSO and {MOP, AMOP}</p>
+    
+    <p><strong><em>practical sidebar</em>:</strong> c2mop</p>
+    
+    <p>... cl:defclass (macro), cl:ensure-class (function) ...</p>
+    
+    <p>... cl:slot-value, c2mop:slot-value-using-class ... and their SETF compliments ...</p>
+    
+    <p>... cl:make-instance ... and the instance initialization chain (cl:initialize-instance, cl:shared-initialize) ...</p>
+    
+    <p>propogation of changes to classes in CLOS (update-instance....)</p>
+  </div><!-- .content -->
+  
+  <div id="bibliography">
+    <h2>Additional Bibliography</h2>
+    <table>
+      <tr class="biblioentry">
+        <td class="biblioid"><a name="bib.{BIBID}">{BIBID}</a></td>
+        <td class="biblioinfo">{AUTHORS}. <em>{TITLE}</em>. {EDITION}. {PUBLISHER} ({CITY}). {YEAR} </td>
+        <td class="bibliorefs"><strong>References</strong>
+          <ul>
+            <li><a href="#bibfef.{BIBID}.1">1</a></li>
+          </ul></td>
+      </tr>
+    </table>
+  </div><!-- .bibliography --> 
+
+</div><!-- .article -->
+
+<div class="footer">
+  <p>(C) 2014. {RIGHS_HOLDER}</p>
+</div><!-- .footer -->
+
+</body>
+</html>
