@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>The DjVu Digital Publications Format and the MetaCommunity Garnet Fork // Genizee Project Journal</title>
+<link href="article.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div class="article">
+
+  <div class="metadata">
+    <h1 class="title">The DjVu Digital Publications Format and the MetaCommunity Garnet Fork</h1>
+    <div class="author">Sean Champ</div>
+    <div class="pubdate">18 September, 2014</div>
+    <div class="revision">Revision 1.0</div>
+  </div><!-- .metadata -->
+  
+  <div class="content">
+    <h2>Overview</h2>
+
+	<p>... a history of the Garnet Project (CMU) (to ca. 1995) ...</p>
+
+    <p>... The Garnet documentation....</p>
+    
+       
+    <h2>Additional Overview - Onto Digital Publications Formats and Free/Open Source Software Tools</h2>
+    
+	<blockquote class="sidebar">
+      <p>... vector file formats ...</p>
+   	  <p>... Adobe ... PostScript ... PDF ...</p>
+      <p>... compressed digital media formats ...</p>
+      <p>... DjVu text layers ...</p>
+    </blockquote>
+
+    <p>Digital Publications Formats ... EPUB ... DjVu ... <a href="DjVu">DjVuLibre</a></p>
+    
+    <p>...EPUB publication format ... tables of contents ... subset of XHTML ...  publication containers ...   </p>
+    <p>...DjVu digital media format ... digitzed editions ... Archive.org ...</p>
+
+    <blockquote class="sidebar">
+      <p>Drawback: Annotation support not expresly avaialble in DjView</p>
+      <p>An EPUB platform might be able to add annotation support to DjView, effectively, if using DjView as a media format for media files distributed within an EPUB container, then moreover appending its own unique annotation support to the EPUB format.</p>
+    </blockquote>
+
+
+<h2>IW44, the Digital Images Codec of DjVu</h2>
+
+<p>See also: <a href="http://www.djvuzone.org/techpapers/index.html"><em>Technical Papers</em></a> at DjVu Zone</a> &mdash; noting, for reference,  the <em>Specification of DjVu Image Compression Format</em> published by AT&amp;T, <a href="http://www.djvuzone.org/djvu/djvu/djvuspec/001.djvu">available in DjVu format</a></p>
+
+<p>Tools including:</p>
+<ul>
+<li><em>Compression</em>: <code class="command">c44</code> (<a href="http://www.djvuzone.org/open/doc/c44.html"><em>manual page</em> at DjVu Zone</a>)</li>
+<li><em>Decompression</em>: <code class="command">d44</code> (<a href="http://www.djvuzone.org/open/doc/d44.html"><em>manual page</em> at DjVu Zone</a>)</li>
+</ul>
+
+<h2>DjVu Format on Contemporary Desktop Computing Platforms</h2>
+    
+    <h3>DjVu Format on Ubuntu Linux Platforms</h3>
+
+	<p>... Debian pacakges including ...    </p>
+    
+	<ul>
+    	<li><code class="deb">pdf2djvu</code></li>
+    	<li><code class="deb">djvulibre-desktop</code></li>
+    	<li><code class="deb">djview</code></li>
+      	<li><code class="deb">djvulibre-plugin</code></li>
+        <li><code class="deb">djvusmooth</code></li>
+    	<li><code class="deb">okular-extra-backends</code></li>
+      </ul>
+      
+      <h3>The DjView Desktop Application</h3>
+      
+      <p>...</p>
+      
+      
+      <h3>The DjView Web Browser Plugin</h3>
+      
+      <p>...</p>
+     
+    <h2>A Formatting Pipeline for Garnet Documentation</h2>
+	
+    <p>The Garnet documentation is available, upstream, in its original TeX format, as well as in the PostScript presentaton format.</p>
+    
+    
+   <p>... PostScript to PDF ...</p>
+        
+	 <blockquote class="snippet">
+     <pre>#!/bin/sh
+
+FILES=*.ps
+
+for PS in ${FILES}; do
+        NAME=$(echo ${PS} | cut -d. -f1)
+        PDF=${NAME}.pdf
+        echo &quot;Converting ${PS} to ${PDF}&quot;
+        ps2pdf ${PS} ${PDF}
+done</pre>
+</blockquote>
+
+<p>... PDF to DjVu &mdash; in a simple example, none utilizing any of the additional formatting control options of the <code class="command">pdf2djvu</code> shell command,, such as special handling for <em>image quality</em>, <em>tables of contents</em>, and <em>Page numbering </em>...</p>
+
+    <blockquote class="snippet">
+     <pre>#!/bin/sh
+
+FILES=*.pdf
+
+for PDF in ${FILES}; do
+        NAME=$(echo ${PDF} | cut -d. -f1)
+        DJ=${NAME}.djv
+        echo &quot;Converting ${PDF} to ${DJ}&quot;
+        pdf2djvu -o ${DJ} ${PDF} 
+done</pre>
+     </blockquote> 
+     
+     <p>... though &mdash; as thusly, and by default &mdash; using <em>lossless compression</em> in the DjVu converter, then the respective <code>djv</code> files all wind up being of  a larger file size than the secondary <code>pdf</code> files.</p>
+
+     
+  </div><!-- .content -->
+  
+  <div id="bibliography">
+    <h2>Additional Bibliography</h2>
+    <table>
+      <tr class="biblioentry">
+        <td class="biblioid"><a name="bib.{BIBID}">{BIBID}</a></td>
+        <td class="biblioinfo">{AUTHORS}. <em>{TITLE}</em>. {EDITION}. {PUBLISHER} ({CITY}). {YEAR} </td>
+        <td class="bibliorefs"><strong>References</strong>
+          <ul>
+            <li><a href="#bibfef.{BIBID}.1">1</a></li>
+          </ul></td>
+      </tr>
+    </table>
+  </div><!-- .bibliography --> 
+
+</div><!-- .article -->
+
+<div class="footer">
+  <p>(C) 2014. {RIGHS_HOLDER}</p>
+</div><!-- .footer -->
+
+</body>
+</html>
