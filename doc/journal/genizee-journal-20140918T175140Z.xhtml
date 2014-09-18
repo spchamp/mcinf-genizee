@@ -39,6 +39,7 @@
     </ul>
     
     <h2>A Simple Example onto the Pythagorean Theorem</h2>
+    <p>See also: (<a href="https://github.com/MetaCommunity/garnet/commit/b04cb764ba2a544cfd1020f15f03f0c9418e4c1f">Revision Mark</a>)</p>
 <blockquote class="snippet">
 <pre>(in-package #:cl-user)
 
@@ -57,6 +58,10 @@
 (defun geom-diff (a c)
   (sqrt (- (expt c 2)
            (expt a 2))))
+
+;; (geom-diff 3 5)
+;; =&gt; 4.0
+
 
 ;; Interface onto KR
 
@@ -99,9 +104,57 @@
 <strong>(g-value right-triangle :c)<br />;; =&gt; 5.656854<br />;; ^ &quot;<u>Peculiar</u>&quot;
 </strong>
 ;; To do: Study <em>Floating point accuracy</em> + utilities in CLtL2
+;; See also: &quot;<a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node122.html"><em>Precision, Contagion, and Coercion</em></a>&quot; from CLM
 
+
+;; Subsequently, [re]defining :a, :b, and :c
+;; using initial values of type FLOAT
+
+(create-instance 'right-triangle triangle
+ (:docstring "c^2 = a^2 + b^2")
+
+ (:a (o-formula (geom-diff (gvl :b) (gvl :c))
+                3.0))
+ (:b (o-formula (geom-diff (gvl :a) (gvl :c))
+                4.0))
+ (:c (o-formula (geom-sum (gvl :a) (gvl :b))
+                5.0)))
+
+;; verify:
+(g-value right-triangle :a)
+;; => 3.0
+(g-value right-triangle :b)
+;; => 4.0
+(g-value right-triangle :c)
+;; => 5.0
+
+<strong>;; Three steps to computing :C 
+;; to a greater degree of numeric accuracy</strong>
+
+;; set :A to a new FLOAT value <strong>[1/3]</strong>
+(s-value right-triangle :a 4.0)
+;; check :B, :C
+(g-value right-triangle :b)
+;; => 3.9999998
+(g-value right-triangle :c)
+;; => 5.656854
+
+;; then set :B to a new FLOAT value <strong>[2/3]</strong>
+(s-value right-triangle :b 3.0)
+;; check :A
+(g-value right-triangle :a)
+;; => 4.0
+
+;; now, check :C <strong>[3/3]</strong>
+(g-value right-triangle :c)
+;; => 5.0
+
+<strong>;; After A and B are both set, using
+;; FLOAT type values, then the value 
+;; computed for :C is "OK"
+</strong>
 ;; To Do: Also model interior angles in RIGHT-TRIANGLE
-;;        using the standard trigonometric formulae
+;;        using the standard trigonometric formulas
 </pre>
 </blockquote>
 	
