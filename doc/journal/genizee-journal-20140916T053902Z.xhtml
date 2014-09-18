@@ -13,7 +13,7 @@
     <h1 class="title">State of the Pick Axe &mdash; A Review of Current Develpoments in the Genizee Project</h1>
     <div class="author">Sean Champ</div>
     <div class="pubdate">16 September, 2014</div>
-    <div class="revision">Revision 1.0</div>
+    <div class="revision">Revision 1.1</div>
   </div><!-- .metadata -->
   
   <div class="content">
@@ -131,17 +131,22 @@
 <p>The <a href="https://github.com/MetaCommunity/garnet/tree/mmgarnet"><code class="revbranch">mmgarnet</code> branch</a> was previously the <a href="https://github.com/mmontone/garnet/tree/master"><code class="revbranch">master</code> branch</a> of the MetaCommunity Garnet repository. The latter repository was created, originally, using the web-based resource management interface at Github. Thus,  the <code><a href="https://github.com/mmontone/garnet">mmontone/garnet</a></code> source repository was <em>forked, </em>creating a repository, <code><a href="https://github.com/MetaCommunity/garnet">MetaCommunity/garnet</a></code> with its  <a href="https://github.com/MetaCommunity/garnet/tree/master"><code class="revbranch">master</code>  branch</a> then derived originally from the corresponding <a href="https://github.com/mmontone/garnet/tree/master"><code class="revbranch">master</code> branch</a> of the <code><a href="https://github.com/mmontone/garnet">mmontone/garnet</a></code> repository. Subsequently, the <em><a href="https://github.com/MetaCommunity/garnet/tree/master"><code>master</code></a></em><a href="https://github.com/MetaCommunity/garnet/tree/master"> branch</a> created from the initial <em>fork</em> was renamed to <code class="revbranch">mmgarnet</code>, and a new <code class="revbranch">master</code> branch was created, that deriving from the <code class="revbranch">garnetlisp</code> <em class="glossterm">branch</em>.</p>
 <p>Towards developing a single revision history for Garnet, a brief, superficial review was performed of the respective soruce trees, so as to determine a small sample of differences between the two respective <em>upstream repositories</em>, in revisions at and proceeding towards each respective <em>revision mark. </em> The <a href="http://git-cola.github.io/screenshots.html">git-cola</a></span> application was substantially helpful, in making this review. Between the 'trunk' source tree of the official Garnet <abbr>SVN</abbr> repository and the 'master' source tree of the <code><a href="https://github.com/mmontone/garnet">mmontone/garnet</a></code> repository, it would seem that the two respective upstream source trees have undergone, largely, a seperate evolution</p>
 <h3>A Repository Model in Four Branches Integrating Three Upstream Repositories</h3>
-<p>After the further work for integration of the official Garnet CVS repository, this creates four distinct branches:</p>
+<blockquote class="endnote">
+  <p>An additional <em class="glossterm">branch</em> has been created, recently, in an effort to merge the initial <em class="revbranch">revision</em> of the SVN-origin <code class="revbranch">garnetlisp</code> <em class="glossterm">branch</em> onto the final <em class="revbranch">revision</em> of the CVS-origin <code class="revbranch">cvsgarnetlisp</code> <em class="glossterm">branch, </em>namely to the creation of the <a href="https://github.com/MetaCommunity/garnet/tree/mergetree"><code class="revbranch">mergetree</code></a> <em class="glossterm">branch</em>. </p>
+  <p>Pending a thorough review of the source code of the resulting <em>merge</em>, development has been proceeding on the <code class="revbranch">garnetlisp</code> <em class="glossterm">branch, </em>in as the latter representing a &quot;Latest known good&quot; branch of the original Garnet source tree.</p>
+</blockquote>
+
+<p>Proceeding on the integration of the official Garnet <abbr>CVS</abbr> repository, four distinct branches were created:</p>
 <ul>
   <li><code class="revbranch">garnetlisp</code> <em class="glossterm">branch</em>, <em class="glossterm"></em>with revision tree source: The official Garnet Lisp project's own <a href="http://sourceforge.net/p/garnetlisp/svn/HEAD/tree/trunk/"><abbr>SVN</abbr> repository</a></li>
   <li><code class="revbranch">cvsgarnetlisp</code> <em class="glossterm">branch</em>, <em class="glossterm"></em>with revision tree source: The official Garnet Lisp project's own <abbrev>CVS</abbrev> repository  (<a href="garnetlisp.cvs.sourceforge.net/viewvc/garnetlisp/">Web view</a>) (<a href="http://sourceforge.net/p/garnetlisp/code/">Info</a>)</li>
   <li><code class="revbranch">mmgarnet</code> <em class="glossterm">branch, </em>with revision tree source: <code><a href="https://github.com/mmontone/garnet">mmontone/garnet</a></code>, mirroring the <code class="revbranch">cvsgarnetlisp</code> <em class="glossterm">branch</em></li>
   <li><code class="revbranch">master</code> <em class="glossterm">branch</em>, derived originally from <code class="revbranch">garnetlisp</code></li>
-</ul>
-This article will address the <code>master</code> branch of the MCi Garnet source repository, as denoted.
+  </ul>
+This article will address the <code class="revbranch">garnetlisp</code> <em class="glossterm"></em> branch of the MCi Garnet source repository, as denoted.
 <h2>Towards Developing a Development Model for Garnet Development</h2>
     
-    <p><em>Keywords: IDE Metamodel; "Meta-IDE" Model</em></p>
+    <p><em>A concept in sidebar: IDE Metamodel, or"Meta-IDE" Model</em></p>
     
     <h3>Platform Requirements</h3>
     
@@ -199,11 +204,8 @@ This article will address the <code>master</code> branch of the MCi Garnet sourc
     
     <p>(Concerns TBD. google: clx save-lisp)    </p>
     <h5>Truetype Dependencies</h5>
-    
-    <p>items loaded (via REQUIRE, therefore "possibly" via ASDF with a functionally configured source registry) when LOAD-TRUETYPE-P</p>
-    
-<blockquote class="ednote endnote">
-<h3>FIXME: Build fails when disabling both compile-&lt;foo&gt;-p and load-&lt;foo&gt;-p</h3>
+    <blockquote class="ednote endnote">
+  <h3>FIXME: Build fails when disabling both compile-&lt;foo&gt;-p and load-&lt;foo&gt;-p</h3>
 <p>When:</p>
 <pre>(defvar compile-truetype-p nil)
 (defvar load-truetype-p nil)</pre>
@@ -211,7 +213,7 @@ This article will address the <code>master</code> branch of the MCi Garnet sourc
 <p>Suggested resolutions:</p>
 	<ul>
     	<li>If using the existing compiler/loader framework, then determine why the build process errs out, namely around that the truetype-loader file is not available at its expected (generated) pathname (under the generated garnet 'bin' directory) but Garnet attempts to load it anyway, even when load-truetype-p is nil?</li>
-    	<li>Otherwise: <u><strong>Convert Garnet's <em>legacy </em>system definitions to use ASDF, and</strong></u>...</li>
+    	<li>Otherwise: <u><strong>Convert Garnet's <em>legacy </em>system definitions into a format suitable for use with ASDF, and</strong></u>...</li>
         <li><u><strong>Determine how to implement a <em>user option</em> feature around ASDF</strong></u>, as for whether the CL Native Truetype support will be used when the respective systems are compiled and/or loaded (default: T)
    	      <ul>
             <li>If implemented <u>as a <em>user option</em>,</u> it may or <em>(recommended) may not</em> be implemented simultaneously with an element for <code>CL:*FEATURES*</code>, but <em>should</em> support a compile-time specification nonetheless</li>
@@ -246,65 +248,66 @@ This article will address the <code>master</code> branch of the MCi Garnet sourc
         </li>
         
     </ul>
-</blockquote>    
+</blockquote>
+    <p>The following Common Lisp software systems may be compiled and loaded via ASDF's integration with <code>CL:REQUIRE</code>, on supoprting implementations</p>
     <ul>
-    <li>ZBP-TTF
+      <li>ZBP-TTF
         <ul>
-    <li>Availability:<ul>
-      <li><a href="http://www.xach.com/lisp/zpb-ttf/">info</a></li>
-      <li><a href="https://github.com/xach/zpb-ttf">at github</a></li>
-      </ul>
-    </li>
-    </ul>
-    </li>
-    <li>CL-Vectors
-      <ul>
-        <li>Availability
-          <ul>
-            <li><a href="http://projects.tuxee.net/cl-vectors/">info</a></li>
-            <li><a href="https://github.com/fjolliton/cl-vectors">at github</a></li>
+          <li>Availability:<ul>
+            <li><a href="http://www.xach.com/lisp/zpb-ttf/">info</a></li>
+            <li><a href="https://github.com/xach/zpb-ttf">at github</a></li>
             </ul>
           </li>
-        <li>Same source code repository also provides:
-          <ul>
-            <li>CL-Paths-TTF</li>
-            <li>CL-AA</li>
+        </ul>
+      </li>
+      <li>CL-Vectors
+        <ul>
+          <li>Availability
+            <ul>
+              <li><a href="http://projects.tuxee.net/cl-vectors/">info</a></li>
+              <li><a href="https://github.com/fjolliton/cl-vectors">at github</a></li>
             </ul>
-        </li>
+          </li>
+          <li>Same source code repository also provides:
+            <ul>
+              <li>CL-Paths-TTF</li>
+              <li>CL-AA</li>
+            </ul>
+          </li>
         </ul>
-    </li>
-    <li>CL-FAD
-      <ul>
-        <li><em>Portable pathname library for Common Lisp</em></li>
-        <li>Availability
-          <ul>
-            <li><a href="http://weitz.de/cl-fad/">info</a></li>
-            <li><a href="https://github.com/edicl/cl-fad">at github</a></li>
-          </ul>
-        </li>
+      </li>
+      <li>CL-FAD
+        <ul>
+          <li><em>Portable pathname library for Common Lisp</em></li>
+          <li>Availability
+            <ul>
+              <li><a href="http://weitz.de/cl-fad/">info</a></li>
+              <li><a href="https://github.com/edicl/cl-fad">at github</a></li>
+            </ul>
+          </li>
         </ul>
-    </li>
-    <li>CL-Store
-      <ul>
-        <li>Keywords: Serialization</li>
-        <li>Availability
-          <ul>
-            <li><a href="http://common-lisp.net/project/cl-store/">info</a></li>
-            <li><a href="https://github.com/skypher/cl-store">at github</a>.</li>
-          </ul>
-        </li>
+      </li>
+      <li>CL-Store
+        <ul>
+          <li>Keywords: Serialization</li>
+          <li>Availability
+            <ul>
+              <li><a href="http://common-lisp.net/project/cl-store/">info</a></li>
+              <li><a href="https://github.com/skypher/cl-store">at github</a>.</li>
+            </ul>
+          </li>
         </ul>
-    </li>
-    <li>Trivial-Features
-      <ul>
-        <li>Availability
-          <ul>
-            <li><a href="http://www.cliki.net/trivial-features">info (Unoff. homepage at CLiki)</a></li>
-            <li><a href="https://github.com/trivial-features/trivial-features">at github</a></li>
-          </ul>
-        </li>
+      </li>
+      <li>Trivial-Features
+        <ul>
+          <li>Availability
+            <ul>
+              <li><a href="http://www.cliki.net/trivial-features">info (Unoff. homepage at CLiki)</a></li>
+              <li><a href="https://github.com/trivial-features/trivial-features">at github</a></li>
+            </ul>
+          </li>
         </ul>
-    </li>
+      </li>
     </ul>
     
     
@@ -527,6 +530,7 @@ This article will address the <code>master</code> branch of the MCi Garnet sourc
           </li>
           <li>{list the beloved systems then defined for loading with ASDF}</li>
           <li>{note the historic timeline of each of Mk:Defsystem and ASDF)</li>
+          <li>Current work: <code><a href="https://github.com/MetaCommunity/garnet/blob/garnetlisp/asdf-systems-gen.lisp">asdf-system-gen.lisp</a></code></li>
         </ul>
       </li>
     </ul>
