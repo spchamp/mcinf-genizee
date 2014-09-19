@@ -162,25 +162,65 @@
                           <ul>
                             <li>Using this IP address as the &quot;Host IP&quot; address for the port forwarding configuration</li>
                             <li>IP address was determined via Microsoft Windows &quot;Network and Sharing Center&quot;</li>
-                              </ul>
+                          </ul>
                         </li>
                         <li>Port forwarding &quot;Host port&quot; (arbitrary) 2222</li>
                         <li>Port forwarding &quot;Guest port&quot; 22
                           <ul>
                             <li>SSH</li>
                             <li>&quot;Guest IP&quot; address is not required in this configuration</li>
-                              </ul>
-                        </li>
                           </ul>
-                    </li>
+                        </li>
                       </ul>
-                </li>
-        </ul>
+                    </li>
+                  </ul>
           </li>
+            </ul>
+      </li>
+      <li><span class="productname">Linux Dekstop Environment</span>
+      <ul>
+          <li>A Linux operating system  (OS) may be installed as a &quot;Guest OS&quot; within a VirtualBox <em>Virtual Appliance</em>
+            <ul>
+              <li>Installation in <em>VirtualBox</em>, as such, would serve to require that the Linux guest OS would be compiled for an x86 or amd64 architecture          </li>
+            </ul>
+          </li>
+          <li><span class="productname">KUbuntu</span>
+            <ul>
+              <li>Extends on the baseline Ubuntu distribution with components of the K Desktop Environment (KDE)
+                <ul>
+                  <li>Dolphin File Manager
+                    <ul>
+                      <li>See also: <code class="package">kdesdk-dolphin-plugins</code> [<a href="http://aeciosantos.com/2012/10/06/using-dolphinkde-to-manage-git-repositories-or-other-vcs">Santos2012</a>]</li>
+                    </ul>
+                  </li>
+                  <li>Konsole terminal emulator</li>
+                  <li>Kontact personal information manager (PIM)</li>
+                  <li>Konqueror web browser
+                    <ul>
+                      <li>Uses KHTML rendering engine
+                        <ul>
+                          <li>HTML rendering engine is the basis of <em>Apple's </em>meta-popular <em>WebKit</em> [<a href="http://www.konqueror.org/features/browser.php">konqueror.org</a>]</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>KDE extends on the Qt widgets framework</li>
+                </ul>
+              </li>
+              <li>KUbuntu OS Installer (ISO) extends on the Ubuntu OS installer
+                <ul>
+                  <li><em>uninstalls</em> some<em> </em>features, such as the Ubuntu <em>Unity</em> components</li>
+                  <li>installs some additional features for the desktop environment, including KDE</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+	  </ul>
+      </li>
           <li><span class="productname">Xming</span>
             <ul>
               <li>X Server for Windows</li>
-              <li>Embedded support for SSH port forwarding, integrating with Putty or Xming's fork, Portable Putty</li>
+              <li>Embedded support for SSH port forwarding, integrating with PuTTY (baseline or or Xming's fork, <em>Portable PuTTY</em>)</li>
               <li>Utility item: XLaunch file for launching Dolphin
                 <ul>
                   <li>XLaunch file created with &quot;-P 2222&quot; as additional args to PuTTY</li>
@@ -192,15 +232,26 @@
           </li>
           <li><span class="productname">Common Lisp</span> Development Environment
             <ul>
-                  <li>SBCL on guest OS
+                  <li>Common Lisp on Guest OS</li>
+                  <li>Implementations to be &quot;Made attention to&quot; in Genizee project
                     <ul>
-                      <li>CLX/Portable CLX</li>
-                      <li>Garnet</li>
-                </ul>
+                      <li>Steel Bank Common Lisp (SBCL)
+                        <ul>
+                          <li>Derived of CMUCL [<a href="http://www.cons.org/cmucl/FAQ.html">CMUCL FAQ</a>]</li>
+                          <li>Debugger</li>
+                          <li>VOPs</li>
+                      <li>Possible concerns with regards to SBCL's handling of UNIX signals within a context of foreign threads [<a href="http://common-lisp.net/project/cl-plus-j/">CL+J</a>] </li></ul></li>
+                      <li>Clozure Common Lisp (CCL)
+                        <ul>
+                          <li>Derived of MCL [<a href="http://basalgangster.macgui.com/RetroMacComputing/The_Long_View/Entries/2013/2/17_Macintosh_Common_Lisp.html">BG2013</a>]</li>
+                          <li>Available on Intel and ARM</li>
+     architectures
+     <li>Uses FFI for interface with resources of containing (host) operating system</li>
+                        </ul>
+                      </li>
+                    </ul>
                   </li>
-                  <li>Utility item: SBCL on host OS</li>
-                  <li>A rationale in selecting SBCL, in short summary: &quot;Because debugger&quot;</li>
-                  <li>Possible concerns with regards to SBCL's thread interrupts model?</li>
+              <li>Utility: Common Lisp on host OS</li>
             </ul>
           </li>
     </ul>
