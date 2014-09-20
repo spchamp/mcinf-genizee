@@ -145,17 +145,17 @@
     <ul>
           <li><span class="productname">VirtualBox</span>
         <ul>
-                  <li>Virtual Appliance Guest OS: Kubuntu (Ubuntu 14.04)
-                    <ul>
-                      <li>VirtualBox Guest Additions are installed on Guest OS</li>
+                  <li><strong><em>Virtual Appliance Guest OS:</em></strong> Kubuntu (Ubuntu 14.04)
+<ul>
+              <li>VirtualBox Guest Additions are installed on Guest OS</li>
                       <li>OpenSSH server is installed on guest OS</li>
                   <li>SBCL is installed on guest OS</li>
                   <li>Orthogonal to this configuration: X.org is installed on guest OS</li>
                     </ul>
                   </li>
-                <li>Virtual Appliance Host OS: Microsoft Windows 8.1
-                  <ul>
-                    <li>VirtualBox network adapter type, installed in host OS for accessing Guest via network: <em>NAT</em></li>
+                <li><em><strong>Virtual Appliance Host OS:</strong></em> Microsoft Windows 8.1
+<ul>
+              <li>VirtualBox network adapter type, installed in host OS for accessing Guest via network: <em>NAT</em></li>
                     <li>Port forwarding configured on Host OS
                       <ul>
                         <li>Host OS IP address observed for NAT adapter: 192.168.50.1
@@ -233,20 +233,20 @@
           <li><span class="productname">Common Lisp</span> Development Environment
             <ul>
                   <li>Common Lisp on Guest OS</li>
-                  <li>Implementations to be &quot;Made attention to&quot; in Genizee project
+                  <li>Implementations noted in Genizee project
                     <ul>
                       <li>Steel Bank Common Lisp (SBCL)
                         <ul>
                           <li>Derived of CMUCL [<a href="http://www.cons.org/cmucl/FAQ.html">CMUCL FAQ</a>]</li>
                           <li>Debugger</li>
-                          <li>VOPs</li>
+                          <li>VOPs (SBCL Architecture) [<a href="http://www.sbcl.org/sbcl-internals/Calling-Convention.html">SBCL Internals</a>]</li>
                       <li>Possible concerns with regards to SBCL's handling of UNIX signals within a context of foreign threads [<a href="http://common-lisp.net/project/cl-plus-j/">CL+J</a>] </li></ul></li>
                       <li>Clozure Common Lisp (CCL)
                         <ul>
                           <li>Derived of MCL [<a href="http://basalgangster.macgui.com/RetroMacComputing/The_Long_View/Entries/2013/2/17_Macintosh_Common_Lisp.html">BG2013</a>]</li>
                           <li>Available on Intel and ARM</li>
      architectures
-     <li>Uses FFI for interface with resources of containing (host) operating system</li>
+     <li>Uses FFI for interface with resources of containing (host) operating system (CCL Architecture) [<a href="http://trac.clozure.com/ccl/wiki/BuildFFIGEN">CCL FFIGEN</a>]</li>
                         </ul>
                       </li>
                     </ul>

@@ -204,52 +204,7 @@ This article will address the <code class="revbranch">garnetlisp</code> <em clas
     
     <p>(Concerns TBD. google: clx save-lisp)    </p>
     <h5>Truetype Dependencies</h5>
-    <blockquote class="ednote endnote">
-  <h3>FIXME: Build fails when disabling both compile-&lt;foo&gt;-p and load-&lt;foo&gt;-p</h3>
-<p>When:</p>
-<pre>(defvar compile-truetype-p nil)
-(defvar load-truetype-p nil)</pre>
-<p>Then: ...build fails.</p>
-<p>Suggested resolutions:</p>
-	<ul>
-    	<li>If using the existing compiler/loader framework, then determine why the build process errs out, namely around that the truetype-loader file is not available at its expected (generated) pathname (under the generated garnet 'bin' directory) but Garnet attempts to load it anyway, even when load-truetype-p is nil?</li>
-    	<li>Otherwise: <u><strong>Convert Garnet's <em>legacy </em>system definitions into a format suitable for use with ASDF, and</strong></u>...</li>
-        <li><u><strong>Determine how to implement a <em>user option</em> feature around ASDF</strong></u>, as for whether the CL Native Truetype support will be used when the respective systems are compiled and/or loaded (default: T)
-   	      <ul>
-            <li>If implemented <u>as a <em>user option</em>,</u> it may or <em>(recommended) may not</em> be implemented simultaneously with an element for <code>CL:*FEATURES*</code>, but <em>should</em> support a compile-time specification nonetheless</li>
-            <li><strong><u>functional syntax</u> for <u>"user option eval"</u>, using existing <em>reader macros</em> <code><u>#+</u></code> and <code><u>#-</u></code></strong></li>
-            <li><strong>recording of "user options" active when <u>A.system</u> was compiled to <u>A.{BUILD_ID}.fasl-files</u>, using <u>A.{BUILD_ID}.manifest file</u>; bundling of <u>A.{BUILD_ID}.fasl-files</u> and <u>A.{BUILD_ID}.manifest</u> file for distribution (within in or in addition to) <u>a stand-alone "Lisp application bundle"</u></strong> for <strong><u>A.{BUILD_ID}</u></strong></li>
-            <li><strong>Integration with ASDF: <code><u>CONFIGURABLE-COMPONENT</u></code></strong> and related <em>subclass layer</em> onto conventional ASDF component classes (?)</li>
-            <li>BUILD_ID would identify a &quot;BUILD&quot; comprised of qualities:
-              <ul>
-                <li>Lisp implementation type
-                  <ul>
-                    <li>Version</li>
-                    <li>Lisp core image identity</li>
-                    <li>Source URI (deb, custom build, etc)</li>
-                  </ul>
-                </li>
-                <li>Systems loaded at time of build
-                  <ul>
-                    <li>System name</li>
-                    <li>Version</li>
-                    <li>Source URI (deb, custom build, etc)</li>
-                  </ul>
-                </li>
-                <li>Features in Lisp at time of build (???)</li>
-              </ul>
-            </li>
-            <li>Additional items to accumulate with each &quot;BUILD&quot; :
-              <ul>
-                <li>Logs of individual streams (error and outuput, synchroinized) indexed the compilation environment of each system definition and each contained component -- for review by developers (needs IDE support)</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        
-    </ul>
-</blockquote>
-    <p>The following Common Lisp software systems may be compiled and loaded via ASDF's integration with <code>CL:REQUIRE</code>, on supoprting implementations</p>
+<p>The following Common Lisp software systems may be compiled and loaded via ASDF's integration with <code>CL:REQUIRE</code>, on supoprting implementations</p>
     <ul>
       <li>ZBP-TTF
         <ul>
@@ -559,6 +514,7 @@ This article will address the <code class="revbranch">garnetlisp</code> <em clas
             <li><code>(opal:get-standard-font :serif :roman :large)</code>
               <ul>
                 <li>Lisp form at line nr. 406 in file <code>gadgets-src:scrolling-menu.lisp</code></li>
+                <li>The inifite loop may be a result of something using that font value?</li>
               </ul>
             </li>
           </ul>
@@ -577,77 +533,10 @@ This article will address the <code class="revbranch">garnetlisp</code> <em clas
           <ul>
             <li>Will try a newer SBCL build (tag 1.2.3)</li>
             <li>...and still the same results.</li>
-            <li><strong><u>TBD: To take a closer look at</u>...</strong>
-              <ul>
-  <li><code><strong><em><u>opal:get-standard-font</u></em></strong></code></li>
-                <li><strong><u>Fonts management</u> in X.org</strong></li>
-                <li>Fonts mangement on the desktop
-                  <ul>
-                    <li>Fonts Mangement for Custom Desktop Applications
-                      <ul>
-                        <li><u><em>Web Content Development</em></u>
-                          <ul>
-                            <li> &quot;Web Fonts&quot; n HTML 5 (<a href="http://www.html5rocks.com/en/tutorials/webfonts/quick/">xref</a>)</li>
-                            </ul>
-                        </li>
-                        <li><em>Literate </em>Digital Media Creation
-                          <ul>
-                            <li>PDF</li>
-                            <li>EPUB</li>
-                            <li>DjVu                        </li>
-                          </ul>
-                        </li>
-                        <li>Availability of Font Files
-                          <ul>
-                            <li>Rights and Licensing of Fonts Files
-                              <ul>
-                                <li>Rationales for commercial rights management in digital media distributoin
-                                  <ul>
-                                    <li><strong><em>artisans' commercial rights</em></strong></li>
-                                    <li> <em>non-repudiation</em></li>
-                                    <li><em>non-resale</em></li>
-                                </ul>
-                                </li>
-                                <li>Technologies 
-                                  <ul>
-                                    <li>...</li>
-                                  </ul>
-                                </li>
-                                <li>Concerns
-                                  <ul>
-                                    <li>In commercial view, a &quot;Free Beer&quot; ethic?</li>
-                                    <li>Digital Media Distribution in Free/Open Source  Platforms (?)</li>
-                                    <li>See also: Debian Social Contract (?)</li>
-                                    <li>...</li>
-                                    </ul>
-                                </li>
-                                </ul>
-                            </li>
-                            <li><em><strong>Artisan Portals</strong></em>
-<ul>
-  <li>See also: <em><a href="http://typodermicfonts.com/the-larabie-fonts-collection/">The Larabie Fonts Collection</a></em><a href="http://typodermicfonts.com/the-larabie-fonts-collection/"> - Typodemic Fonts</a></li>
-                            </ul>
-                            </li>
-                            </ul>
-                        </li>
-                        </ul>
-                    </li>
-                    <li>Fonts Management in Contemporary Desktop Enviornments
-                      <ul>
-                        <li>KDE</li>
-                        <li>GNOME (Which edition?)</li>
-                        <li>Microsoft Windows</li>
-                        <li>OS X<br />
-                          </li>
-                        </ul>
-                    </li>
-                    </ul>
-                </li>
-              </ul>
-            </li>
             </ul>
         </li>
-        </ul>
+        <li>Further study may continue after Garnet legacy compiler/loader files would be all converted into ASDF system definitions    </li>
+      </ul>
     </li>
     </ul>
     </blockquote>

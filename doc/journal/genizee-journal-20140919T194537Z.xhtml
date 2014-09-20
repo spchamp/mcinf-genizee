@@ -10,10 +10,10 @@
 <div class="article">
 
   <div class="metadata">
-    <h1 class="title">ASDF, UML, and XLIB, a &quot;Three Point Article&quot; </h1>
+    <h1 class="title">ASDF, UML, XLIB, Garnet, and the Desktop, a &quot;Five Point Article&quot; </h1>
     <div class="author">Sean Champ</div>
     <div class="pubdate">19 Septembeer, 2014</div>
-    <div class="revision">Revision 1.0</div>
+    <div class="revision">Revision 1.1</div>
   </div><!-- .metadata -->
   
   <div class="content">
@@ -66,12 +66,112 @@
     	        <li>XLIB protocol =&gt; CORBA ?</li>
     	        <li>DXPC =&gt; CORBA ?</li>
     	        <li>??? =&gt; CORBA ?</li>
-  	          </ul>
+   	          </ul>
     	    </li>
    	      </ul>
     	</li>
-   	  </ul>
-    <p>It might seem like be "Quite a stretch," then, to describe how a <em>UML model </em>can be developed for ASDF &mdash; onto ASDF system definitions, ASDF system component trees, and the <code>operation</code> object system in ASDF &mdash; in developing an <em>interactive view</em> of a UML diagram, namely onto ASDF system definition, namely as a component for an IDE in Common Lisp.</p>
+    	<li><u><strong>Determine how to implement a <em>user option</em> feature around ASDF</strong></u>, as for whether the CL Native Truetype support will be used when the respective systems are compiled and/or loaded (default: T)
+    	      <ul>
+    	        <li>If implemented <u>as a <em>user option</em>,</u> it may or <em>(recommended) may not</em> be implemented simultaneously with an element for <code>CL:*FEATURES*</code>, but <em>should</em> support a compile-time specification nonetheless</li>
+    	        <li><strong><u>functional syntax</u> for <u>&quot;user option eval&quot;</u>, using existing <em>reader macros</em> <code><u>#+</u></code> and <code><u>#-</u></code></strong></li>
+    	        <li><strong>recording of &quot;user options&quot; active when <u>A.system</u> was compiled to <u>A.{BUILD_ID}.fasl-files</u>, using <u>A.{BUILD_ID}.manifest file</u>; bundling of <u>A.{BUILD_ID}.fasl-files</u> and <u>A.{BUILD_ID}.manifest</u> file for distribution (within in or in addition to) <u>a stand-alone &quot;Lisp application bundle&quot;</u></strong> for <strong><u>A.{BUILD_ID}</u></strong></li>
+    	        <li><strong>Integration with ASDF: <code><u>CONFIGURABLE-COMPONENT</u></code></strong> and related <em>subclass layer</em> onto conventional ASDF component classes (?)</li>
+    	        <li>BUILD_ID would identify a &quot;BUILD&quot; comprised of qualities:
+    	          <ul>
+    	            <li>Lisp implementation type
+    	              <ul>
+    	                <li>Version</li>
+    	                <li>Lisp core image identity</li>
+    	                <li>Source URI (deb, custom build, etc)</li>
+  	                </ul>
+   	                </li>
+    	            <li>Systems loaded at time of build
+    	              <ul>
+    	                <li>System name</li>
+    	                <li>Version</li>
+    	                <li>Source URI (deb, custom build, etc)</li>
+  	                </ul>
+   	                </li>
+    	            <li>Features in Lisp at time of build (???)</li>
+  	            </ul>
+  	          </li>
+    	        <li>Additional items to accumulate with each &quot;BUILD&quot; :
+    	          <ul>
+    	            <li>Logs of individual streams (error and outuput, synchroinized) indexed the compilation environment of each system definition and each contained component -- for review by developers (needs IDE support)</li>
+   	              </ul>
+    	        </li>
+   	        </ul>
+    	</li>
+    	<li><strong><u>TBD: &quot;Font Topics&quot;</u></strong>
+   	      <ul>
+   	        <li><code><strong><em><u>opal:get-standard-font</u></em></strong></code></li>
+   	        <li><strong><u>Fonts management</u> in X.org</strong></li>
+   	        <li>Fonts mangement on the desktop
+    	          <ul>
+    	            <li>Fonts Mangement for Custom Desktop Applications
+    	              <ul>
+    	                <li><u><em>Web Content Development</em></u>
+    	                  <ul>
+    	                    <li> &quot;Web Fonts&quot; n HTML 5 (<a href="http://www.html5rocks.com/en/tutorials/webfonts/quick/">xref</a>)</li>
+  	                    </ul>
+  	                  </li>
+    	                <li><em>Literate </em>Digital Media Creation
+    	                  <ul>
+    	                    <li>PDF</li>
+    	                    <li>EPUB</li>
+    	                    <li>DjVu </li>
+  	                    </ul>
+   	                    </li>
+    	                <li>Availability of Font Files
+    	                  <ul>
+    	                    <li>Rights and Licensing of Fonts Files
+    	                      <ul>
+    	                        <li>Rationales for commercial rights management in digital media distributoin
+    	                          <ul>
+    	                            <li><strong><em>artisans' commercial rights</em></strong></li>
+    	                            <li> <em>non-repudiation</em></li>
+    	                            <li><em>non-resale</em></li>
+  	                            </ul>
+   	                            </li>
+    	                        <li>Technologies
+    	                          <ul>
+    	                            <li>...</li>
+  	                            </ul>
+   	                            </li>
+    	                        <li>Concerns
+    	                          <ul>
+    	                            <li>In commercial view, a &quot;Free Beer&quot; ethic?</li>
+    	                            <li>Digital Media Distribution in Free/Open Source  Platforms (?)</li>
+    	                            <li>See also: Debian Social Contract (?)</li>
+    	                            <li>...</li>
+  	                            </ul>
+   	                            </li>
+  	                        </ul>
+   	                        </li>
+    	                    <li><em><strong>Artisan's Font Craft</strong></em>
+    	                      <ul>
+    	                        <li>See also: <em><a href="http://typodermicfonts.com/the-larabie-fonts-collection/">The Larabie Fonts Collection</a></em><a href="http://typodermicfonts.com/the-larabie-fonts-collection/"> - Typodemic Fonts</a></li>
+  	                        </ul>
+  	                      </li>
+  	                    </ul>
+   	                    </li>
+  	                </ul>
+   	                </li>
+    	            <li>Fonts Management in Contemporary Desktop Enviornments
+    	              <ul>
+    	                <li>KDE</li>
+    	                <li>GNOME (Which edition?)</li>
+    	                <li>Microsoft Windows</li>
+    	                <li>OS X<br />
+   	                    </li>
+  	                </ul>
+   	                </li>
+  	            </ul>
+            </li>
+          </ul>
+    	</li>
+	</ul>
+<p>It might seem like be "Quite a stretch," then, to describe how a <em>UML model </em>can be developed for ASDF &mdash; onto ASDF system definitions, ASDF system component trees, and the <code>operation</code> object system in ASDF &mdash; in developing an <em>interactive view</em> of a UML diagram, namely onto ASDF system definition, namely as a component for an IDE in Common Lisp.</p>
 <p>Though the concept occurs in this same week as the previous, but it would be &quot;Even more of a stretch,&quot; then &mdash; and in this following matter, &quot;Completely off-topic&quot; &mdash; to illustrate a relation, here, towards a study of the <em>local proxy/remote proxy</em> design of the DXPC protocol [<a href="http://www.tldp.org/HOWTO/LBX-11.html">LBX Mini-HOWTO</a>]. The <em>local proxy/remote proxy</em> design of service architectures may be secondly implemented in a CORBA framework &mdash; in which, only each of the <em>local proxy </em>and the <em>remote proxy</em> (respectively ORBs) would need have access to the network (using IIOP) and local services would connect to the respective ORBs via <em>something other than TCP/IP networking sockets.</em> </p>
 
      </blockquote>
